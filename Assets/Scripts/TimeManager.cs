@@ -9,6 +9,8 @@ public class TimeManager : MonoBehaviour
     public GameObject text0;
     public GameObject text1;
     public GameObject text2;
+    public GameObject teamName;
+    public GameObject StartButton;
 
     void Start()
     {
@@ -29,6 +31,11 @@ public class TimeManager : MonoBehaviour
         textAnimators[2].SetTrigger("Enter");
         yield return new WaitForSeconds(delayBetween);
 
-        textAnimators[0].SetTrigger("Highlight");
+        teamName.SetActive(true);
+        textAnimators[3].SetTrigger("Enter");
+        yield return new WaitForSeconds(delayBetween);
+
+        StartButton.SetActive(true);
+        textAnimators[4].SetTrigger("Enter");
     }
 }
