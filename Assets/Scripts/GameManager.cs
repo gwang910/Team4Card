@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;
     float time = 0.0f;
 
+    AudioSource audioSource;
+    public AudioClip clip;
 
     public GameObject firstcard;
     public GameObject secondcard;               // GameObject 추후 Card스크립트연결
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1.0f;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
