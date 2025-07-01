@@ -6,15 +6,17 @@ public class StartButton : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip startSound;
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void GameStart()
     {
-        
-
-            audioSource = GetComponent<AudioSource>();
-            audioSource.clip = this.startSound;
-            audioSource.Play();
+        AudioManager.Instance.effectSource.PlayOneShot(startSound);
 
         SceneManager.LoadScene("MainScene");
+
 
     }
     public void MyButtonClicked()

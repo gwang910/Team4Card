@@ -6,15 +6,17 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    public AudioSource audioSource;
+    public AudioSource bgmSource;
+    public AudioSource effectSource;
     public AudioClip BackGroundSound;
+    public AudioClip startSound;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        bgmSource = GetComponent<AudioSource>();
 
-        audioSource.clip = this.BackGroundSound;
-        audioSource.Play();
+        bgmSource.clip = this.BackGroundSound;
+        bgmSource.Play();
     }
 
 
