@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
     {
         if(firstcard.idx == secondcard.idx)
         {
-            firstcard.IsDestroyed();
-            secondcard.IsDestroyed();
+            firstcard.DestroyCard();
+            secondcard.DestroyCard();
             cardCount -= 2;
 
             if (cardCount == 0)
