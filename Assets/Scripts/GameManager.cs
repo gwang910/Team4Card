@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if(firstcard.idx == secondcard.idx)
         {
+            audioSource.PlayOneShot(clip);
             firstcard.DestroyCard();
             secondcard.DestroyCard();
             cardCount -= 2;
