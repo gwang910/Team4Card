@@ -7,4 +7,8 @@ public class StartButton : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+    public void MyButtonClicked()
+    {
+        Debug.Log("Button clicked!");
+    }
 }
