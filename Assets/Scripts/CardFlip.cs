@@ -52,7 +52,6 @@ public class CardFlip : MonoBehaviour
         if (backCard.transform.rotation.eulerAngles.y > yTrack)
         {
             count++;
-            Debug.Log($"{backCard.transform.rotation.eulerAngles.y}, {yTrack}, {count}");
         }
         yTrack = backCard.transform.rotation.eulerAngles.y;
         if (count == 3 && backCard.transform.rotation.eulerAngles.y <= 180)
