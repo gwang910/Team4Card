@@ -12,8 +12,10 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;
     float time = 0.0f;
 
+
     public GameObject firstcard;
     public GameObject secondcard;               // GameObject 추후 Card스크립트연결
+    public int cardCount = 0;
 
     public void Awake()
     {
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        Time.timeScale = 1.0f;
     }
 
     void Update()
@@ -45,6 +47,13 @@ public class GameManager : MonoBehaviour
         {
             firstcard.IsDestroyed();
             secondcard.IsDestroyed();
+            cardCount -= 2;
+
+            if (cardCount == 0)
+            {
+                endTxt.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
         }
         else
         {
