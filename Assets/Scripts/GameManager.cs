@@ -9,11 +9,16 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public Text timeTxt;
-    public GameObject endTxt;
+    public GameObject endClearTxt;
+    public GameObject endFailTxt;
     float time = 0.0f;
+
+    AudioSource audioSource;
+    public AudioClip clip;
 
     public GameObject firstcard;
     public GameObject secondcard;               // GameObject 추후 Card스크립트연결
+    public int cardCount = 0;
 
     public void Awake()
     {
@@ -25,7 +30,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        Time.timeScale = 1.0f;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -35,7 +41,7 @@ public class GameManager : MonoBehaviour
         if (time > 30.0f)
         {
             Time.timeScale = 0.0f;
-            endTxt.SetActive(true);
+            endFailTxt.SetActive(true);
         }
     }
 
@@ -45,6 +51,13 @@ public class GameManager : MonoBehaviour
         {
             firstcard.IsDestroyed();
             secondcard.IsDestroyed();
+            cardCount -= 2;
+
+            if (cardCount == 0)
+            {
+                endClearTxt.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
         }
         else
         {
