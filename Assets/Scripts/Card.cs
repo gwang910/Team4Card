@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    int idx = 0;
+    public int idx = 0;
 
     public GameObject front;
     public GameObject back;
@@ -26,5 +26,40 @@ public class Card : MonoBehaviour
         front.SetActive(true);
         cardBackground.SetActive(true);
         back.SetActive(false);
+
+
+        if (GameManager.Instance.firstcard == null)
+        {
+            GameManager.Instance.firstcard = this;
+        }
+
+        else
+        {
+            GameManager.Instance.secondcard = this;
+            GameManager.Instance.CardMatched();
+        }
+    }
+
+    public void DestroyCard()
+    {
+        Invoke("DestroyCardInvoke", 0.5f);
+    }
+
+    void DestroyCardInvoke()
+    {
+        Destroy(gameObject);
+    }
+
+    public void CloseCard()
+    {
+        Invoke("CloseCardInvoke", 0.5f);
+    }
+
+    void CloseCardInvoke()
+    {
+        anim.SetBool("isOpen", false);
+        front.SetActive(false);
+        cardBackground.SetActive(false);
+        back.SetActive(true);
     }
 }
