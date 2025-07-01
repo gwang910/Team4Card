@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public Text timeTxt;
-    public GameObject endTxt;
+    public GameObject endClearTxt;
+    public GameObject endFailTxt;
     float time = 0.0f;
 
     AudioSource audioSource;
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
         if (time > 30.0f)
         {
             Time.timeScale = 0.0f;
-            endTxt.SetActive(true);
+            endFailTxt.SetActive(true);
         }
     }
 
@@ -54,7 +55,7 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                endTxt.SetActive(true);
+                endClearTxt.SetActive(true);
                 Time.timeScale = 0.0f;
             }
         }
