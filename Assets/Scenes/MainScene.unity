@@ -555,7 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeTxt: {fileID: 476323821}
   endClearTxt: {fileID: 0}
-  endFailTxt: {fileID: 0}
+  endFailPrefab: {fileID: 6296137479939969990, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
   clip: {fileID: 8300000, guid: bacb365ee60b7af48834110a0e7bd63f, type: 3}
   firstcard: {fileID: 0}
   secondcard: {fileID: 0}
