@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bd07823486e73044189a7db91d87c75b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioSource: {instanceID: 0}
+  - BackGroundSound: {instanceID: 0}
+  - StartSound: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
