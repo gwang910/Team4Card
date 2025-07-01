@@ -7,7 +7,7 @@ public class MakeTuna : MonoBehaviour
     public GameObject tuna;
     void Start()
     {
-        InvokeRepeating("maketuna", 0.0f, 1.0f);
+        InvokeRepeating("maketuna", 0.0f, 1.5f);
     }
     void maketuna()
     {
