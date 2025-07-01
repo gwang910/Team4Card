@@ -6,21 +6,32 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
-    AudioSource audioSource;
-    public AudioClip clip;
+    public AudioSource bgmSource;
+    public AudioSource effectSource;
+    public AudioClip BackGroundSound;
+    public AudioClip startSound;
 
-    public void Awake()
+    void Start()
     {
-        if(Instance == null)
+        bgmSource = GetComponent<AudioSource>();
+
+        bgmSource.clip = this.BackGroundSound;
+        bgmSource.Play();
+    }
+
+
+
+    private void Awake()
+    {
+        if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = this.clip;
-        audioSource.Play();
-    }
 }
