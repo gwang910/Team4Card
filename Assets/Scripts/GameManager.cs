@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     AudioSource audioSource;
     public AudioClip clip;
 
-    public GameObject firstcard;
-    public GameObject secondcard;               // GameObject 추후 Card스크립트연결
+    public Card firstcard;
+    public Card secondcard;               // GameObject 추후 Card스크립트연결
     public int cardCount = 0;
 
     public void Awake()
@@ -47,10 +47,11 @@ public class GameManager : MonoBehaviour
 
     public void CardMatched()
     {
-        if(firstcard == secondcard)
+        if(firstcard.idx == secondcard.idx)
         {
-            firstcard.IsDestroyed();
-            secondcard.IsDestroyed();
+            audioSource.PlayOneShot(clip);
+            firstcard.DestroyCard();
+            secondcard.DestroyCard();
             cardCount -= 2;
 
             if (cardCount == 0)
@@ -61,7 +62,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // 다시 뒤집기
+            firstcard.CloseCard();
+            secondcard.CloseCard();
         }
 
         firstcard = null;
