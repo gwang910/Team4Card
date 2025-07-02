@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
+        cardCount = 12;
     }
 
     void Update()
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
             secondcard.DestroyCard();
             cardCount -= 2;
 
-            if (cardCount == -12)
+            if (cardCount == 0)
             {
                 Time.timeScale = 0.0f;
                 LoadClearScene();
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadClearScene()
     {
-        Debug.Log("성공했다해라");
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
 }
