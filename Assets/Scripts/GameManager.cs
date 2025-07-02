@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;         //Scene넘어갈때 필요한 코드
+using UnityEngine.SceneManagement;         //Scene???????? ?????? ????
 
 public class GameManager : MonoBehaviour
 {
+    public EndPanelFail endPanelFail;
     public static GameManager Instance;
 
     public Text timeTxt;
@@ -14,10 +15,11 @@ public class GameManager : MonoBehaviour
     float time = 0.0f;
 
     AudioSource audioSource;
-    public AudioClip clip;
+    public AudioClip clearclip;
+    public AudioClip failclip;
 
     public Card firstcard;
-    public Card secondcard;               // GameObject 추후 Card스크립트연결
+    public Card secondcard;               // GameObject ???? Card????????????
     public int cardCount = 0;
 
     bool isfail = false;
@@ -44,7 +46,8 @@ public class GameManager : MonoBehaviour
         if (time > 30.0f && !isfail)
         {
             Time.timeScale = 0.0f;
-            Instantiate(endFailPrefab);
+            //Instantiate(endFailPrefab);
+            endPanelFail.ShowEndPanel();
             isfail = true;
         }
     }
@@ -53,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         if(firstcard.idx == secondcard.idx)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clearclip);
             firstcard.DestroyCard();
             secondcard.DestroyCard();
             cardCount -= 2;
@@ -65,12 +68,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(failclip);
             firstcard.CloseCard();
             secondcard.CloseCard();
         }
 
         firstcard = null;
-        secondcard = null;      // 선택 초기화
+        secondcard = null;      // ???? ??????
     }
 
     // 엔딩 씬 넘어가는 함수
