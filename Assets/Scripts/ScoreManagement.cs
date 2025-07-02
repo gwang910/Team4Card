@@ -9,6 +9,7 @@ public class ScoreManagement : MonoBehaviour
 
     public Text nowScore;
     public Text bestScore;
+    public Text newBest;
 
     private void Start()
     {
@@ -36,6 +37,7 @@ public class ScoreManagement : MonoBehaviour
             {
                 PlayerPrefs.SetFloat(key, time);
                 bestScore.text = time.ToString("N2");
+                newBest.gameObject.SetActive(true);
             }
             else
             {
@@ -50,6 +52,7 @@ public class ScoreManagement : MonoBehaviour
         {
             PlayerPrefs.SetFloat(key, time);
             bestScore.text = time.ToString("N2");
+            newBest.gameObject.SetActive(true);
         }
     }
 }
