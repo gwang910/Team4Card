@@ -270,10 +270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd99f532b5c980439e9525712698553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage2_4x4Button: {fileID: 0}
-  stage3_4x5Button: {fileID: 0}
-  lockIcon4x4: {fileID: 0}
-  lockIcon4x5: {fileID: 0}
+  stage2_4x4Button: {fileID: 240287977}
+  stage3_4x5Button: {fileID: 1132097787}
+  lockIcon4x4: {fileID: 729356125}
+  lockIcon4x5: {fileID: 455560132}
 --- !u!95 &106814138
 Animator:
   serializedVersion: 5
@@ -442,10 +442,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd99f532b5c980439e9525712698553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage2_4x4Button: {fileID: 0}
-  stage3_4x5Button: {fileID: 0}
+  stage2_4x4Button: {fileID: 240287977}
+  stage3_4x5Button: {fileID: 1132097787}
   lockIcon4x4: {fileID: 729356125}
-  lockIcon4x5: {fileID: 0}
+  lockIcon4x5: {fileID: 455560132}
 --- !u!95 &240287981
 Animator:
   serializedVersion: 5
@@ -990,9 +990,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd99f532b5c980439e9525712698553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage2_4x4Button: {fileID: 0}
-  stage3_4x5Button: {fileID: 0}
-  lockIcon4x4: {fileID: 0}
+  stage2_4x4Button: {fileID: 240287977}
+  stage3_4x5Button: {fileID: 1132097787}
+  lockIcon4x4: {fileID: 729356125}
   lockIcon4x5: {fileID: 455560132}
 --- !u!95 &1132097791
 Animator:
