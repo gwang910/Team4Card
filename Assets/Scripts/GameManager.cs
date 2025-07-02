@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;         
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private float time = 0.0f;
     private float finishedTime = 0.0f;
+    bool stopTime;
     bool isfail = false;
 
     public void Awake()
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        stopTime = false;
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
         cardCount = 12;
@@ -44,7 +46,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        timeTxt.text = time.ToString("N2");
+        if (!stopTime)
+        {
+            timeTxt.text = time.ToString("N2");
+        }
         if (time > 30.0f && !isfail)
         {
             Time.timeScale = 0.0f;
@@ -64,7 +69,7 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                Time.timeScale = 0.0f;
+                stopTime = true;
                 finishedTime = time;
                 StartCoroutine(DelayLoadClearScene());
             }
@@ -86,7 +91,7 @@ public class GameManager : MonoBehaviour
     }
     void CloseFailCard()
     {
-         audioSource.PlayOneShot(failclip);
+        audioSource.PlayOneShot(failclip);
     }
     // coroutine of loading ClearScene
     IEnumerator DelayLoadClearScene()
@@ -95,5 +100,4 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
-
 }
