@@ -10,6 +10,10 @@ public class AudioManager : MonoBehaviour
     public AudioSource effectSource; 
     public AudioClip BackGroundSound;
     public AudioClip startSound;
+    public AudioClip TimeUpSound;
+    public Animator animator;
+
+    private bool wasTimeUp = false;
 
 
 
@@ -29,6 +33,45 @@ public class AudioManager : MonoBehaviour
             bgmSource.clip = BackGroundSound;
             bgmSource.Play();
         }
+    }
+
+    void Update()
+    {
+
+        if (animator == null)
+        {
+            animator = GameObject.Find("TimeTxt1").GetComponent<Animator>();
+            if (animator == null)
+            {
+                animator = GameObject.Find("TimeTxt2").GetComponent<Animator>();
+                if (animator == null)
+                {
+                    animator = GameObject.Find("TimeTxt3").GetComponent<Animator>();
+                    if (animator == null)
+                    {
+                        return;
+
+                    }
+                }
+            }
+        }
+
+        if (animator != null)
+        {
+            bool isTimeUp = animator.GetBool("TimeUp");
+
+
+            if (isTimeUp && !wasTimeUp)
+            {
+                bgmSource.Stop();
+                bgmSource.clip = this.TimeUpSound; // 시간임박 음악 재생
+                bgmSource.Play();
+            }
+
+            wasTimeUp = isTimeUp;
+        }
+
+
     }
 
 
