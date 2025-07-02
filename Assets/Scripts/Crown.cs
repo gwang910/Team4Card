@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Crown : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class Crown : MonoBehaviour
         {
             transform.position += Vector3.down * 0.001f;
         }
+    }
+    private void OnMouseDown()
+    {
+        SceneManager.LoadScene("HiddenStage");
     }
     public void LongLiveTheKing()
     {
