@@ -21,14 +21,11 @@ public class Card : MonoBehaviour
 
     void Start()
     {
-        // remember position from Board.cs
+        // get position from Board.cs
         targetPosition = transform.position;
 
-        // start with random position
-        transform.position = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
-
-        // go back to own position
-        StartCoroutine(MoveToPosition());
+        // start with origin position
+        transform.position = new Vector3(0, 0, 0);
     }
 
     public void Setting(int number)
@@ -81,8 +78,16 @@ public class Card : MonoBehaviour
         back.SetActive(true);
     }
 
-    IEnumerator MoveToPosition()
+    // card dealing; used in board.cs
+    public void Deal(int index)
     {
+        StartCoroutine(MoveToPosition(index * 0.2f));
+    }
+
+    IEnumerator MoveToPosition(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        
         while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5);
@@ -91,4 +96,5 @@ public class Card : MonoBehaviour
 
         transform.position = targetPosition;
     }
+
 }
