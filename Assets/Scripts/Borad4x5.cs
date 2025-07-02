@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Borad4x3 : MonoBehaviour
+public class Borad4x5 : MonoBehaviour
 {
     public GameObject card;
 
