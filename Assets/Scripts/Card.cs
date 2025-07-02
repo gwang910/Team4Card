@@ -17,6 +17,20 @@ public class Card : MonoBehaviour
     AudioSource audioSource;
     public AudioClip clip;
 
+    Vector3 targetPosition;
+
+    void Start()
+    {
+        // remember position from Board.cs
+        targetPosition = transform.position;
+
+        // start with random position
+        transform.position = new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
+
+        // go back to own position
+        StartCoroutine(MoveToPosition());
+    }
+
     public void Setting(int number)
     {
         idx = number;
@@ -65,5 +79,16 @@ public class Card : MonoBehaviour
         front.SetActive(false);
         cardBackground.SetActive(false);
         back.SetActive(true);
+    }
+
+    IEnumerator MoveToPosition()
+    {
+        while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5);
+            yield return null;
+        }
+
+        transform.position = targetPosition;
     }
 }
