@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;         //Scene넘어갈때 필요한 코드
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     public Text timeTxt;
-    public GameObject endClearTxt;
-    public GameObject endFailTxt;
+    public GameObject endFailPrefab;
     float time = 0.0f;
 
     AudioSource audioSource;
@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public Card firstcard;
     public Card secondcard;               // GameObject 추후 Card스크립트연결
     public int cardCount = 0;
+
+    bool isfail = false;
 
     public void Awake()
     {
@@ -32,16 +34,18 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
+        cardCount = 12;
     }
 
     void Update()
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
-        if (time > 30.0f)
+        if (time > 30.0f && !isfail)
         {
             Time.timeScale = 0.0f;
-            endFailTxt.SetActive(true);
+            Instantiate(endFailPrefab);
+            isfail = true;
         }
     }
 
@@ -56,8 +60,8 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                endClearTxt.SetActive(true);
                 Time.timeScale = 0.0f;
+                LoadClearScene();
             }
         }
         else
@@ -68,5 +72,11 @@ public class GameManager : MonoBehaviour
 
         firstcard = null;
         secondcard = null;      // 선택 초기화
+    }
+
+    public void LoadClearScene()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("EndScene");
     }
 }
