@@ -60,8 +60,7 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                Time.timeScale = 0.0f;
-                LoadClearScene();
+                StartCoroutine(DelayLoadClearScene());
             }
         }
         else
@@ -74,8 +73,10 @@ public class GameManager : MonoBehaviour
         secondcard = null;      // 선택 초기화
     }
 
-    public void LoadClearScene()
-    {
+    // 엔딩 씬 넘어가는 함수
+    IEnumerator DelayLoadClearScene() 
+    { 
+        yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
