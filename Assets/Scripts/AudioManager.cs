@@ -21,7 +21,15 @@ public class AudioManager : MonoBehaviour
         bgmSource.Play();
     }
 
-
+    public void PlayDefaultBGM()
+    {
+        if (bgmSource != null && BackGroundSound != null)
+        {
+            bgmSource.Stop();
+            bgmSource.clip = BackGroundSound;
+            bgmSource.Play();
+        }
+    }
 
 
     private void Awake()
@@ -35,6 +43,7 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject); 
         }
+
     }
 
 }
