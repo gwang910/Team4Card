@@ -450,7 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSource: {fileID: 444498696}
   effectSource: {fileID: 444498695}
-  BackGroundSound: {fileID: 8300000, guid: e38a45e519083364a9ef512b316d3499, type: 3}
+  BackGroundSound: {fileID: 0}
   startSound: {fileID: 8300000, guid: bacb365ee60b7af48834110a0e7bd63f, type: 3}
 --- !u!4 &444498698
 Transform:
