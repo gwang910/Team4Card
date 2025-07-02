@@ -38,7 +38,7 @@ public class StageSelect : MonoBehaviour
             lockIcon4x5.SetActive(true);
         }
     }
-    public void LoadStage3x4()
+    public void LoadStage4x3()
     {
         SceneManager.LoadScene("Stage1_4x3");
     }

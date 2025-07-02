@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
 
         string currentScene = SceneManager.GetActiveScene().name;
-        if(currentScene == "MainScene")
+        if(currentScene == "Stage1_4x3")
         {
             PlayerPrefs.SetInt("Stage2_4x4_unlock", 1);     // 1 = true = unlock
         }

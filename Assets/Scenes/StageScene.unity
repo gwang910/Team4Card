@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 106814137}
   - component: {fileID: 106814138}
   m_Layer: 5
-  m_Name: Stage1_3x4btn
+  m_Name: Stage1_4x3btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1880825948}
         m_TargetAssemblyTypeName: StageSelect, Assembly-CSharp
-        m_MethodName: LoadStage3x4
+        m_MethodName: LoadStage4x3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage2_4x4Button: {fileID: 0}
   stage3_4x5Button: {fileID: 0}
-  lockIcon4x4: {fileID: 0}
+  lockIcon4x4: {fileID: 729356125}
   lockIcon4x5: {fileID: 0}
 --- !u!95 &240287981
 Animator:
@@ -993,7 +993,7 @@ MonoBehaviour:
   stage2_4x4Button: {fileID: 0}
   stage3_4x5Button: {fileID: 0}
   lockIcon4x4: {fileID: 0}
-  lockIcon4x5: {fileID: 0}
+  lockIcon4x5: {fileID: 455560132}
 --- !u!95 &1132097791
 Animator:
   serializedVersion: 5
