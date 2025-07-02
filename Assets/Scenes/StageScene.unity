@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 106814135}
   - component: {fileID: 106814134}
   m_Layer: 5
-  m_Name: Stage3x4btn
+  m_Name: Stage1_3x4btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 240287978}
   - component: {fileID: 240287977}
   m_Layer: 5
-  m_Name: Stage4x4btn
+  m_Name: Stage2_4x4btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 380669222}
   - component: {fileID: 380669221}
   m_Layer: 5
-  m_Name: Stage3x4
+  m_Name: Stage1_3x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +548,7 @@ GameObject:
   - component: {fileID: 968833370}
   - component: {fileID: 968833369}
   m_Layer: 5
-  m_Name: Stage4x4
+  m_Name: Stage2_4x4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 1132097788}
   - component: {fileID: 1132097787}
   m_Layer: 5
-  m_Name: Stage4x5btn
+  m_Name: Stage3_4x5btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 1976411883}
   - component: {fileID: 1976411882}
   m_Layer: 5
-  m_Name: Stage4x5
+  m_Name: Stage3_4x5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

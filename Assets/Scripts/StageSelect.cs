@@ -22,10 +22,10 @@ public class StageSelect : MonoBehaviour
 
     public void LoadStage4x4()
     {
-        SceneManager.LoadScene("Stage4x4Scene");
+        SceneManager.LoadScene("Stage2_4x4Scene");
     }
     public void LoadStage4x5()
     {
-        SceneManager.LoadScene("Stage4x5Scene");
+        SceneManager.LoadScene("Stage3_4x5Scene");
     }
 }
