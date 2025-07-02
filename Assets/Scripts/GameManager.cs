@@ -109,4 +109,24 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
+
+    //HiddenStageMechanisms
+
+    public HiddenCard HFirstcard;
+    public HiddenCard HSecondcard;
+    public void HiddenCardMatched()
+    {
+        if (HFirstcard.index == HSecondcard.index)
+        {
+            audioSource.PlayOneShot(clearclip);
+            firstcard.DestroyCard();
+            secondcard.DestroyCard();
+        }
+        else
+        {
+            Invoke("CloseFailCard", 0.6f);      // closefailcard sound delay
+        }
+        firstcard = null;
+        secondcard = null;      // use at card.cs
+    }
 }
