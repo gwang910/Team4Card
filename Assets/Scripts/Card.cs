@@ -87,7 +87,10 @@ public class Card : MonoBehaviour
     IEnumerator MoveToPosition(float delay)
     {
         yield return new WaitForSeconds(delay);
-        
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(clip, 0.3f);
+
         while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5);

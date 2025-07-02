@@ -117,8 +117,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
-
-    // Check all cards arrived
     public void NotifyCardArrived()
     {
         arrivedCardCount++;
