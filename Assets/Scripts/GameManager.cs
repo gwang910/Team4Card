@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     public Card secondcard;               // Connect to GameObject Card
     public int cardCount = 0;
 
-    private bool isPlay = true;
     private float time = 0.0f;
     private float finishedTime = 0.0f;
     bool isfail = false;
@@ -42,27 +41,18 @@ public class GameManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         cardCount = 12;
     }
-
     void Update()
     {
-        if (isPlay == true)
+        time += Time.deltaTime;
+        timeTxt.text = time.ToString("N2");
+        if (time > 30.0f && !isfail)
         {
-
-            time += Time.deltaTime;
-            timeTxt.text = time.ToString("N2");
-            if (time > 30.0f && !isfail)
-            {
-                Time.timeScale = 0.0f;
-                Instantiate(endFailPrefab);
-                isfail = true;
-            }
             Time.timeScale = 0.0f;
             //Instantiate(endFailPrefab);
             endPanelFail.ShowEndPanel();
             isfail = true;
         }
     }
-
     public void CardMatched()
     {
         if (firstcard.idx == secondcard.idx)
@@ -74,7 +64,6 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                isPlay = false;
                 Time.timeScale = 0.0f;
                 finishedTime = time;
                 StartCoroutine(DelayLoadClearScene());
