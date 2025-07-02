@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;         
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             endPanelFail.ShowEndPanel();
             isfail = true;
         }
-
+    }
     public void CardMatched()
     {
         if (firstcard.idx == secondcard.idx)
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     }
     void CloseFailCard()
     {
-         audioSource.PlayOneShot(failclip);
+        audioSource.PlayOneShot(failclip);
     }
     // coroutine of loading ClearScene
     IEnumerator DelayLoadClearScene()

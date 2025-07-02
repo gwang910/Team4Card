@@ -2042,7 +2042,7 @@ MonoBehaviour:
   frontCard: {fileID: 1371422355}
   backCard: {fileID: 789134963}
   audioSource: {fileID: 0}
-  flipSound: {fileID: 8300000, guid: 200973686654f2f47a36bd3d66715eef, type: 3}
+  flipSound: {fileID: 8300000, guid: 65643679813e5304da30ca544dd5af61, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
   frontSprite: {fileID: 0}
