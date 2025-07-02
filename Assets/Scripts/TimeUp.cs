@@ -9,17 +9,25 @@ public class TimeUp : MonoBehaviour
     public AudioClip TimeUpSound;
     public Animator animator;
 
+    private bool wasTimeUp = false;
+
     void Update()
     {
-
-        bool isTimeUp = animator.GetBool("TimeUp");
-
-        if (isTimeUp == true)
+        if (animator != null)
         {
-            bgmSource.Stop();
-            bgmSource.clip = this.TimeUpSound; // 시간임박 음악 재생
-            bgmSource.Play();
+            bool isTimeUp = animator.GetBool("TimeUp");
+
+
+            if (isTimeUp && !wasTimeUp)
+            {
+                bgmSource.Stop();
+                bgmSource.clip = this.TimeUpSound; // 시간임박 음악 재생
+                bgmSource.Play();
+            }
+
+            wasTimeUp = isTimeUp;
         }
+
 
     }
 

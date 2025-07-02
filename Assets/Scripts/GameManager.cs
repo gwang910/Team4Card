@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     bool stopTime;
     bool isfail = false;
 
+    bool isCardReady = false;   // for waiting card dealing animation
+    int arrivedCardCount = 0;
+
     public void Awake()
     {
         if (Instance == null)
@@ -45,15 +48,17 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        time += Time.deltaTime;
-        if (!stopTime)
+        
+        if (!stopTime && isCardReady)
         {
             timeTxt.text = time.ToString("N2");
+            time += Time.deltaTime;
         }
 
         if (time > 19.9f)
         {
             timeanime.SetTrigger("TimeUp");
+            timeanime.SetBool("TimeUp", true);
         }
 
         if (time > 30.0f && !isfail)
@@ -110,9 +115,15 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("EndScene");
     }
 
-    public void SaveClear()
+    // Check all cards arrived
+    public void NotifyCardArrived()
     {
-        PlayerPrefs.SetInt("MainSceneCleared", 1);              // Clear save > endscene > stageselect > unlock 4x4, 4x5
-        PlayerPrefs.Save();
+        arrivedCardCount++;
+
+        // when all cards arrive, time start
+        if (arrivedCardCount >= cardCount)
+        {
+            isCardReady = true;     // 'true' is essential for time start
+        }
     }
 }
