@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;         //Scene넘어갈때 필요한 코드
+using UnityEngine.SceneManagement;         //Scene???????? ?????? ????
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public AudioClip clip;
 
     public Card firstcard;
-    public Card secondcard;               // GameObject 추후 Card스크립트연결
+    public Card secondcard;               // GameObject ???? Card????????????
     public int cardCount = 0;
 
     bool isfail = false;
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         }
 
         firstcard = null;
-        secondcard = null;      // 선택 초기화
+        secondcard = null;      // ???? ??????
     }
 
     public void LoadClearScene()

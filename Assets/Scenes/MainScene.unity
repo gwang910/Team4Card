@@ -912,8 +912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeTxt: {fileID: 476323821}
-  endClearTxt: {fileID: 0}
-  endFailTxt: {fileID: 1308777928}
+  endFailPrefab: {fileID: 6296137479939969990, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
   clip: {fileID: 8300000, guid: bacb365ee60b7af48834110a0e7bd63f, type: 3}
   firstcard: {fileID: 0}
   secondcard: {fileID: 0}
@@ -1305,11 +1304,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 638832305}
   m_SourcePrefab: {fileID: 100100000, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
---- !u!1 &1308777928 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6296137479939969990, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
-  m_PrefabInstance: {fileID: 1308777927}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1308777931 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2154926482641702292, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
