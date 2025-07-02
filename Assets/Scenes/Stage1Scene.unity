@@ -912,6 +912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPanelFail: {fileID: 1355472978}
+  timeanime: {fileID: 0}
   timeTxt: {fileID: 476323821}
   endClearTxt: {fileID: 0}
   endFailTxt: {fileID: 0}
@@ -1054,7 +1055,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1055062945305375331, guid: b29ff5b710d97e64294091fb1162eeaa, type: 3}
       propertyPath: m_Name
-      value: Board
+      value: Board4x3
       objectReference: {fileID: 0}
     - target: {fileID: 7056123146004110051, guid: b29ff5b710d97e64294091fb1162eeaa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1096,11 +1097,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7225322748287856515, guid: b29ff5b710d97e64294091fb1162eeaa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1055062945305375331, guid: b29ff5b710d97e64294091fb1162eeaa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1019815214}
   m_SourcePrefab: {fileID: 100100000, guid: b29ff5b710d97e64294091fb1162eeaa, type: 3}
+--- !u!1 &1019815213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1055062945305375331, guid: b29ff5b710d97e64294091fb1162eeaa, type: 3}
+  m_PrefabInstance: {fileID: 1019815212}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1019815214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019815213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1deaa1fbb7770314c9bea0aacf5a4544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  card: {fileID: 5678648508968507981, guid: 10404d09db9fabb4f8a33f0532c1c452, type: 3}
 --- !u!1 &1029784051
 GameObject:
   m_ObjectHideFlags: 0
