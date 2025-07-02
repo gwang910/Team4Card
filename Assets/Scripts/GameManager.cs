@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;         //Scene???????? ?????? ????
+using UnityEngine.SceneManagement;         
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public AudioClip failclip;
 
     public Card firstcard;
-    public Card secondcard;               // GameObject ???? Card????????????
+    public Card secondcard;               // Connect to GameObject Card
     public int cardCount = 0;
 
     bool isfail = false;
@@ -63,26 +63,24 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                Invoke("LoadClearScene",0.7f);
+                StartCoroutine(DelayLoadClearScene());
             }
         }
         else
         {
+            audioSource.PlayOneShot(failclip);
             firstcard.CloseCard();
             secondcard.CloseCard();
-            Invoke("CloseFailCard", 0.5f);
         }
+
         firstcard = null;
-        secondcard = null;      // ???? ??????
+        secondcard = null;      // use at card.cs
     }
 
-    void CloseFailCard()
-    {
-        audioSource.PlayOneShot(failclip);
-    }
-
-    public void LoadClearScene()
-    {
+    // coroutine of loading ClearScene
+    IEnumerator DelayLoadClearScene() 
+    { 
+        yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
