@@ -2113,6 +2113,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974707837}
   m_CullTransparentMesh: 1
+--- !u!1 &1046541804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1046541806}
+  - component: {fileID: 1046541805}
+  m_Layer: 0
+  m_Name: ScoreManagement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1046541805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046541804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df9802dc52accd40982fd9e5d126ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nowScore: {fileID: 1983677806}
+  bestScore: {fileID: 1951886147}
+--- !u!4 &1046541806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046541804}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 654.6, y: 55.200012, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1058150413
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,6 +3882,7 @@ GameObject:
   - component: {fileID: 1983677805}
   - component: {fileID: 1983677807}
   - component: {fileID: 1983677806}
+  - component: {fileID: 1983677808}
   m_Layer: 5
   m_Name: NowTimeTxt
   m_TagString: Untagged
@@ -3904,6 +3951,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983677804}
   m_CullTransparentMesh: 1
+--- !u!114 &1983677808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983677804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df9802dc52accd40982fd9e5d126ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nowScore: {fileID: 1983677806}
+  bestScore: {fileID: 0}
 --- !u!1 &2076790290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,3 +4058,4 @@ SceneRoots:
   - {fileID: 664253373}
   - {fileID: 693652390}
   - {fileID: 1589542875}
+  - {fileID: 1046541806}

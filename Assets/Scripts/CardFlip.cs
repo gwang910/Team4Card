@@ -41,7 +41,7 @@ public class CardFlip : MonoBehaviour
     }
     public void Update()
     {
-        if ((backCard.transform.rotation.eulerAngles.y < 90 || backCard.transform.rotation.eulerAngles.y > 270) || backCard.transform.rotation.eulerAngles.y == 0)
+        if (backCard.transform.rotation.eulerAngles.y < 90 || backCard.transform.rotation.eulerAngles.y > 270)
         {
             frontSprite.enabled = false;
         }

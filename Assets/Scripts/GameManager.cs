@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public Text timeTxt;
     public GameObject endClearTxt;
     public GameObject endFailTxt;
-    float time = 0.0f;
 
     AudioSource audioSource;
     public AudioClip clip;
@@ -20,6 +19,8 @@ public class GameManager : MonoBehaviour
     public Card secondcard;               // GameObject 추후 Card스크립트연결
     public int cardCount = 0;
 
+    private bool isPlay = true;
+    private float time = 0.0f;
     public void Awake()
     {
         if (Instance == null)
@@ -36,12 +37,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
-        timeTxt.text = time.ToString("N2");
-        if (time > 30.0f)
+        if (isPlay == true)
         {
-            Time.timeScale = 0.0f;
-            endFailTxt.SetActive(true);
+            time += Time.deltaTime;
+            timeTxt.text = time.ToString("N2");
+            if (time > 30.0f)
+            {
+                isPlay = false;
+                Time.timeScale = 0.0f;
+                endFailTxt.SetActive(true);
+            }
         }
     }
 
@@ -56,6 +61,7 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
+                isPlay = false;
                 endClearTxt.SetActive(true);
                 Time.timeScale = 0.0f;
             }
@@ -68,5 +74,10 @@ public class GameManager : MonoBehaviour
 
         firstcard = null;
         secondcard = null;      // 선택 초기화
+    }
+
+    public float GetTime()
+    {
+        return time;
     }
 }
