@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
         stopTime = false;
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
-        cardCount = 12;
     }
     void Update()
     {
@@ -91,7 +90,10 @@ public class GameManager : MonoBehaviour
         firstcard = null;
         secondcard = null;      // use at card.cs
     }
-
+    public void SetCardCount(int count)
+    {
+        cardCount = count;
+    }
     public float GetTime()
     {
         return finishedTime;

@@ -10,6 +10,7 @@ public class Borad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.SetCardCount(12);
         int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 };
         arr = arr.OrderBy(X => Random.Range(0f, 5f)).ToArray();
 
