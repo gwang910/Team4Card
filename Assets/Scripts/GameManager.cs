@@ -82,9 +82,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            audioSource.PlayOneShot(failclip);
             firstcard.CloseCard();
             secondcard.CloseCard();
+            Invoke("CloseFailCard", 0.6f);      // closefailcard sound delay
         }
 
         firstcard = null;
@@ -95,7 +95,10 @@ public class GameManager : MonoBehaviour
     {
         return finishedTime;
     }
-
+    void CloseFailCard()
+    {
+         audioSource.PlayOneShot(failclip);
+    }
     // coroutine of loading ClearScene
     IEnumerator DelayLoadClearScene()
     {
