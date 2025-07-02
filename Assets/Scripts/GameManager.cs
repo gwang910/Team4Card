@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;         //Scene넘어갈때 필요한 코드
+using UnityEngine.SceneManagement;         
 
 public class GameManager : MonoBehaviour
 {
+    public EndPanelFail endPanelFail;
     public static GameManager Instance;
 
     public Text timeTxt;
@@ -15,10 +16,11 @@ public class GameManager : MonoBehaviour
     public GameObject endFailPrefab;
 
     AudioSource audioSource;
-    public AudioClip clip;
+    public AudioClip clearclip;
+    public AudioClip failclip;
 
     public Card firstcard;
-    public Card secondcard;               // GameObject 추후 Card스크립트연결
+    public Card secondcard;               // Connect to GameObject Card
     public int cardCount = 0;
 
     private bool isPlay = true;
@@ -45,14 +47,7 @@ public class GameManager : MonoBehaviour
     {
         if (isPlay == true)
         {
-            time += Time.deltaTime;
-            timeTxt.text = time.ToString("N2");
-            if (time > 30.0f)
-            {
-                isPlay = false;
-                Time.timeScale = 0.0f;
-                endFailTxt.SetActive(true);
-            }
+
             time += Time.deltaTime;
             timeTxt.text = time.ToString("N2");
             if (time > 30.0f && !isfail)
@@ -61,6 +56,10 @@ public class GameManager : MonoBehaviour
                 Instantiate(endFailPrefab);
                 isfail = true;
             }
+            Time.timeScale = 0.0f;
+            //Instantiate(endFailPrefab);
+            endPanelFail.ShowEndPanel();
+            isfail = true;
         }
     }
 
@@ -68,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         if (firstcard.idx == secondcard.idx)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clearclip);
             firstcard.DestroyCard();
             secondcard.DestroyCard();
             cardCount -= 2;
@@ -78,26 +77,31 @@ public class GameManager : MonoBehaviour
                 isPlay = false;
                 Time.timeScale = 0.0f;
                 finishedTime = time;
-                LoadClearScene();
+                StartCoroutine(DelayLoadClearScene());
             }
         }
         else
         {
+            audioSource.PlayOneShot(failclip);
             firstcard.CloseCard();
             secondcard.CloseCard();
         }
 
         firstcard = null;
-        secondcard = null;      // 선택 초기화
+        secondcard = null;      // use at card.cs
     }
 
     public float GetTime()
     {
         return finishedTime;
     }
-    public void LoadClearScene()
+
+    // coroutine of loading ClearScene
+    IEnumerator DelayLoadClearScene()
     {
+        yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
+
 }
