@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         if (time > 19.9f)
         {
             timeanime.SetTrigger("TimeUp");
+            timeanime.SetBool("TimeUp", true);
         }
 
         if (time > 30.0f && !isfail)
