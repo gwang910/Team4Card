@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;         //Scene넘어갈때 필요한 코드
+using UnityEngine.SceneManagement;         
 
 public class GameManager : MonoBehaviour
 {
+    public EndPanelFail endPanelFail;
     public static GameManager Instance;
 
     public Text timeTxt;
@@ -15,13 +16,13 @@ public class GameManager : MonoBehaviour
     public GameObject endFailPrefab;
 
     AudioSource audioSource;
-    public AudioClip clip;
+    public AudioClip clearclip;
+    public AudioClip failclip;
 
     public Card firstcard;
-    public Card secondcard;               // GameObject 추후 Card스크립트연결
+    public Card secondcard;               // Connect to GameObject Card
     public int cardCount = 0;
 
-    private bool isPlay = true;
     private float time = 0.0f;
     private float finishedTime = 0.0f;
     bool isfail = false;
@@ -40,64 +41,59 @@ public class GameManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         cardCount = 12;
     }
-
     void Update()
     {
-        if (isfail == false)
+        time += Time.deltaTime;
+        timeTxt.text = time.ToString("N2");
+        if (time > 30.0f && !isfail)
         {
-            time += Time.deltaTime;
-            timeTxt.text = time.ToString("N2");
-            if (time > 30.0f)
-            {
-                isPlay = false;
-                Time.timeScale = 0.0f;
-                endFailTxt.SetActive(true);
-            }
-            time += Time.deltaTime;
-            timeTxt.text = time.ToString("N2");
-            if (time > 30.0f && !isfail)
-            {
-                Time.timeScale = 0.0f;
-                Instantiate(endFailPrefab);
-                isfail = true;
-            }
+            Time.timeScale = 0.0f;
+            //Instantiate(endFailPrefab);
+            endPanelFail.ShowEndPanel();
+            isfail = true;
         }
-    }
 
     public void CardMatched()
     {
         if (firstcard.idx == secondcard.idx)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clearclip);
             firstcard.DestroyCard();
             secondcard.DestroyCard();
             cardCount -= 2;
 
             if (cardCount == 0)
             {
-                isPlay = false;
                 Time.timeScale = 0.0f;
                 finishedTime = time;
-                LoadClearScene();
+                StartCoroutine(DelayLoadClearScene());
             }
         }
         else
         {
             firstcard.CloseCard();
             secondcard.CloseCard();
+            Invoke("CloseFailCard", 0.6f);      // closefailcard sound delay
         }
 
         firstcard = null;
-        secondcard = null;      // 선택 초기화
+        secondcard = null;      // use at card.cs
     }
 
     public float GetTime()
     {
         return finishedTime;
     }
-    public void LoadClearScene()
+    void CloseFailCard()
     {
+         audioSource.PlayOneShot(failclip);
+    }
+    // coroutine of loading ClearScene
+    IEnumerator DelayLoadClearScene()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
+
 }

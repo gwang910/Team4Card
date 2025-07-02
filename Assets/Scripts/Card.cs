@@ -14,6 +14,9 @@ public class Card : MonoBehaviour
 
     public SpriteRenderer frontImage;
 
+    AudioSource audioSource;
+    public AudioClip clip;
+
     public void Setting(int number)
     {
         idx = number;
@@ -26,7 +29,8 @@ public class Card : MonoBehaviour
         front.SetActive(true);
         cardBackground.SetActive(true);
         back.SetActive(false);
-
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(clip);
 
         if (GameManager.Instance.firstcard == null)
         {
