@@ -913,6 +913,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endPanelFail: {fileID: 1355472978}
   timeTxt: {fileID: 476323821}
+  endClearTxt: {fileID: 0}
+  endFailTxt: {fileID: 0}
   endFailPrefab: {fileID: 6296137479939969990, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
   clearclip: {fileID: 8300000, guid: 1c8fa355ac77a8245af611ca5d085d99, type: 3}
   failclip: {fileID: 8300000, guid: 3795e7fb3c3108740afd46978e1c247a, type: 3}
@@ -1295,6 +1297,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7341432765902903238, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 509
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341432765902903238, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 197
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341432765902903238, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341432765902903238, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -350
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646311379609130813, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ac4cb90c571ef0349a5cfe678712ecaa, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
