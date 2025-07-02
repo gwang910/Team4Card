@@ -68,18 +68,23 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            audioSource.PlayOneShot(failclip);
             firstcard.CloseCard();
             secondcard.CloseCard();
+            Invoke("CloseFailCard", 0.6f);      // closefailcard sound delay
         }
 
         firstcard = null;
         secondcard = null;      // use at card.cs
     }
 
+    void CloseFailCard()
+    {
+         audioSource.PlayOneShot(failclip);
+    }
+   
     // coroutine of loading ClearScene
-    IEnumerator DelayLoadClearScene() 
-    { 
+    IEnumerator DelayLoadClearScene()
+    {
         yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
