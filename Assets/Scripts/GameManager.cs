@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public AudioClip clearclip;
     public AudioClip failclip;
 
+
     public Card firstcard;
     public Card secondcard;               // Connect to GameObject Card
     public int cardCount = 0;
@@ -40,11 +41,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     void Start()
     {
         stopTime = false;
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
+        timeanime.SetBool("TimeUp", false);
     }
     void Update()
     {

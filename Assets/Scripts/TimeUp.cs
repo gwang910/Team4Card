@@ -11,8 +11,20 @@ public class TimeUp : MonoBehaviour
 
     private bool wasTimeUp = false;
 
+
+
     void Update()
     {
+
+        if (animator == null)
+        {
+            animator = GameObject.Find("TimeTxt").GetComponent<Animator>();
+            if (animator == null)
+            {
+                return;
+            }
+        }
+
         if (animator != null)
         {
             bool isTimeUp = animator.GetBool("TimeUp");
