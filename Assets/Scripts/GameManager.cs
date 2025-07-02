@@ -109,4 +109,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
+
+    public void SaveClear()
+    {
+        PlayerPrefs.SetInt("MainSceneCleared", 1);              // Clear save > endscene > stageselect > unlock 4x4, 4x5
+        PlayerPrefs.Save();
+    }
 }

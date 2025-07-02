@@ -6,23 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class StageSelect : MonoBehaviour
 {
-    public Button stage4x4Button;
-    public Button stage4x5Button;
-    public GameObject lockIcon4x4;
-    public GameObject lockIcon4x5;
+   // public Button stage4x4Button;
+   // public Button stage4x5Button;
+    //public GameObject lockIcon4x4;
+    //public GameObject lockIcon4x5;
 
     private void Start()
     {
-        int isCleared = PlayerPrefs.GetInt
+    
     }
-    public void MainScene()
+    public void LoadStage3x4()
     {
         SceneManager.LoadScene("MainScene");
     }
 
     public void LoadStage4x4()
     {
-        SceneManager.LoadScene("Stage2_4x4Scene");
+        SceneManager.LoadScene("Stage2_4x4");
     }
     public void LoadStage4x5()
     {
