@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 816991166791252500}
   - component: {fileID: -4109700150623546132}
   - component: {fileID: 1545821011208474598}
+  - component: {fileID: 2487399129789555247}
   m_Layer: 0
   m_Name: HiddenCard
   m_TagString: Untagged
@@ -137,6 +138,7 @@ MonoBehaviour:
   front: {fileID: 7918639591645823393}
   cardBackground: {fileID: 600109447501720543}
   clip: {fileID: 8300000, guid: 8678a0fda874135458e4913bd3ad5fa7, type: 3}
+  anim: {fileID: 2487399129789555247}
 --- !u!82 &-4109700150623546132
 AudioSource:
   m_ObjectHideFlags: 0
@@ -278,6 +280,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4982363}
   m_EdgeRadius: 0
+--- !u!95 &2487399129789555247
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678648508968507981}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9931200ec4c98314fb25ec7263134989, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7918639591645823393
 GameObject:
   m_ObjectHideFlags: 0

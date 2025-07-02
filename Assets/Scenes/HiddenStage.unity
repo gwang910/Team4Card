@@ -153,7 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da7f452a9f7959c4090452aae8c9a750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearclip: {fileID: 8300000, guid: 5a7608abf1521ca49b3692e28fd375f5, type: 3}
+  kick: {fileID: 8300000, guid: 8580175211326fb40a27582dec8844d5, type: 3}
+  snare: {fileID: 8300000, guid: 22940a702b86ba44ca73dd5cb38c9422, type: 3}
+  hHat: {fileID: 8300000, guid: 5a7608abf1521ca49b3692e28fd375f5, type: 3}
   failclip: {fileID: 8300000, guid: 3795e7fb3c3108740afd46978e1c247a, type: 3}
   scorePanel: {fileID: 1814721897}
   HFirstcard: {fileID: 0}

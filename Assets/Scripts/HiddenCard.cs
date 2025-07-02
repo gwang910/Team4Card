@@ -14,6 +14,8 @@ public class HiddenCard : MonoBehaviour
     AudioSource audioSource;
     public AudioClip clip;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,6 @@ public class HiddenCard : MonoBehaviour
     }
     public void OpenCard()
     {
-        Debug.Log("Clicked");
         if (HiddenStageGM.Instance.HFirstcard == null)
         {
             audioSource.PlayOneShot(clip);
@@ -66,7 +67,8 @@ public class HiddenCard : MonoBehaviour
 
     public void DestroyCard()
     {
-        Invoke("DestroyCardInvoke", 0.5f);
+        anim.SetBool("isMatched", true);
+        Invoke("DestroyCardInvoke", 0.3f);
     }
 
     void DestroyCardInvoke()

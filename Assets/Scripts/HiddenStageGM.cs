@@ -8,7 +8,9 @@ public class HiddenStageGM : MonoBehaviour
     public static HiddenStageGM Instance;
 
     AudioSource audioSource;
-    public AudioClip clearclip;
+    public AudioClip kick;
+    public AudioClip snare;
+    public AudioClip hHat;
     public AudioClip failclip;
 
     public GameObject scorePanel;
@@ -20,6 +22,7 @@ public class HiddenStageGM : MonoBehaviour
     public Text scoreTxt;
     public Text bestScoreTxt;
     public Text nowScoreTxt;
+
     float time = 60.0f;
     int score = 0;
     public void Awake()
@@ -65,7 +68,23 @@ public class HiddenStageGM : MonoBehaviour
     {
         if (HFirstcard.index == HSecondcard.index)
         {
-            audioSource.PlayOneShot(clearclip);
+            switch (score % 4)
+            {
+                case 0:
+                    audioSource.PlayOneShot(kick);
+                    break;
+                case 1:
+                    audioSource.PlayOneShot(hHat);
+                    break;
+                case 2:
+                    audioSource.PlayOneShot(snare);
+                    break;
+                case 3:
+                    audioSource.PlayOneShot(hHat);
+                    break;
+                default:
+                    break;
+            }
             HFirstcard.DestroyCard();
             HSecondcard.DestroyCard();
             score++;
