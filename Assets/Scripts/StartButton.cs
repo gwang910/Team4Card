@@ -16,7 +16,7 @@ public class StartButton : MonoBehaviour
     {
         AudioManager.Instance.effectSource.PlayOneShot(startSound); // 오디오 매니저에서 실행 : 버튼은 스위치 역할만 하도록
 
-        SceneManager.LoadScene("MainScene"); // 장면 전환
+        SceneManager.LoadScene("StageScene"); // 장면 전환
 
     }
     public void MyButtonClicked()
