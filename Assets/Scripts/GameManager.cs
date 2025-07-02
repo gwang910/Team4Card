@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     float time = 0.0f;
 
     AudioSource audioSource;
-    public AudioClip clip;
+    public AudioClip clearclip;
+    public AudioClip failclip;
 
     public Card firstcard;
     public Card secondcard;               // GameObject 추후 Card스크립트연결
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
         if(firstcard.idx == secondcard.idx)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clearclip);
             firstcard.DestroyCard();
             secondcard.DestroyCard();
             cardCount -= 2;
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(failclip);
             firstcard.CloseCard();
             secondcard.CloseCard();
         }
