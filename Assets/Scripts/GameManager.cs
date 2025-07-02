@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
             time += Time.deltaTime;
         }
 
-        if (time > 19.9f)
+        if (time > 19.5f)
         {
             timeanime.SetTrigger("TimeUp");
             timeanime.SetBool("TimeUp", true);
