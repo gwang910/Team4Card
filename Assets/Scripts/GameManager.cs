@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;         //Scene넘어갈때 필요한 코드
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public Text timeTxt;
     public GameObject endClearTxt;
     public GameObject endFailTxt;
+    public GameObject endFailPrefab;
+    float time = 0.0f;
 
     AudioSource audioSource;
     public AudioClip clip;
@@ -21,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     private bool isPlay = true;
     private float time = 0.0f;
+    bool isfail = false;
+
     public void Awake()
     {
         if (Instance == null)
@@ -33,6 +38,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
+        cardCount = 12;
     }
 
     void Update()
@@ -47,6 +53,13 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0.0f;
                 endFailTxt.SetActive(true);
             }
+        time += Time.deltaTime;
+        timeTxt.text = time.ToString("N2");
+        if (time > 30.0f && !isfail)
+        {
+            Time.timeScale = 0.0f;
+            Instantiate(endFailPrefab);
+            isfail = true;
         }
     }
 
@@ -64,6 +77,7 @@ public class GameManager : MonoBehaviour
                 isPlay = false;
                 endClearTxt.SetActive(true);
                 Time.timeScale = 0.0f;
+                LoadClearScene();
             }
         }
         else
@@ -79,5 +93,9 @@ public class GameManager : MonoBehaviour
     public float GetTime()
     {
         return time;
+    public void LoadClearScene()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("EndScene");
     }
 }
