@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public GameObject endFailTxt;
     public GameObject endFailPrefab;
 
+    public static int stageRows;
+    public static int stageCols;
+
     AudioSource audioSource;
     public AudioClip clearclip;
     public AudioClip failclip;
@@ -28,6 +31,9 @@ public class GameManager : MonoBehaviour
     private float finishedTime = 0.0f;
     bool stopTime;
     bool isfail = false;
+
+    bool isCardReady = false;   // for waiting card dealing animation
+    int arrivedCardCount = 0;
 
     public void Awake()
     {
@@ -45,15 +51,17 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        time += Time.deltaTime;
-        if (!stopTime)
+        
+        if (!stopTime && isCardReady)
         {
             timeTxt.text = time.ToString("N2");
+            time += Time.deltaTime;
         }
 
         if (time > 19.9f)
         {
             timeanime.SetTrigger("TimeUp");
+            timeanime.SetBool("TimeUp", true);
         }
 
         if (time > 30.0f && !isfail)
@@ -109,24 +117,14 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
-
-    //HiddenStageMechanisms
-
-    public HiddenCard HFirstcard;
-    public HiddenCard HSecondcard;
-    public void HiddenCardMatched()
+    public void NotifyCardArrived()
     {
-        if (HFirstcard.index == HSecondcard.index)
+        arrivedCardCount++;
+
+        // when all cards arrive, time start
+        if (arrivedCardCount >= cardCount)
         {
-            audioSource.PlayOneShot(clearclip);
-            firstcard.DestroyCard();
-            secondcard.DestroyCard();
+            isCardReady = true;     // 'true' is essential for time start
         }
-        else
-        {
-            Invoke("CloseFailCard", 0.6f);      // closefailcard sound delay
-        }
-        firstcard = null;
-        secondcard = null;      // use at card.cs
     }
 }

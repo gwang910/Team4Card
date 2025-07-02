@@ -7,17 +7,20 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public AudioSource bgmSource;
-    public AudioSource effectSource; // 효과음 재생명령은 버튼에 있음
+    public AudioSource effectSource; 
     public AudioClip BackGroundSound;
     public AudioClip startSound;
+
+
 
     void Start()
     {
         bgmSource = GetComponent<AudioSource>();
 
-        bgmSource.clip = this.BackGroundSound; // 배경음 재생
+        bgmSource.clip = this.BackGroundSound; 
         bgmSource.Play();
     }
+
 
 
 
@@ -26,11 +29,11 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // 장면 전환 후 이어지도록
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
-            Destroy(gameObject); // 중복재생 방지
+            Destroy(gameObject); 
         }
     }
 

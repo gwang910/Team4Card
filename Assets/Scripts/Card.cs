@@ -17,6 +17,17 @@ public class Card : MonoBehaviour
     AudioSource audioSource;
     public AudioClip clip;
 
+    Vector3 targetPosition;
+
+    void Start()
+    {
+        // get position from Board.cs
+        targetPosition = transform.position;
+
+        // start with origin position
+        transform.position = new Vector3(0, 0, 0);
+    }
+
     public void Setting(int number)
     {
         idx = number;
@@ -66,4 +77,30 @@ public class Card : MonoBehaviour
         cardBackground.SetActive(false);
         back.SetActive(true);
     }
+
+    // card dealing; used in board.cs
+    public void Deal(int index)
+    {
+        StartCoroutine(MoveToPosition(index * 0.2f));
+    }
+
+    IEnumerator MoveToPosition(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(clip, 0.3f);
+
+        while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5);
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+
+        GameManager.Instance.NotifyCardArrived();
+    }
+
+
 }
