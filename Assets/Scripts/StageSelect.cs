@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class StageSelect : MonoBehaviour
 {
-   // public Button stage4x4Button;
-   // public Button stage4x5Button;
+   // public Button stage2_4x4Button;
+   // public Button stage3_4x5Button;
     //public GameObject lockIcon4x4;
     //public GameObject lockIcon4x5;
 
