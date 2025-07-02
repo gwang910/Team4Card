@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (isPlay == true)
+        if (isfail == false)
         {
             time += Time.deltaTime;
             timeTxt.text = time.ToString("N2");
