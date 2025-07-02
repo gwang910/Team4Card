@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public Text timeTxt;
+    public GameObject endClearTxt;
+    public GameObject endFailTxt;
     public GameObject endFailPrefab;
-    float time = 0.0f;
 
     AudioSource audioSource;
     public AudioClip clearclip;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
     public Card secondcard;               // Connect to GameObject Card
     public int cardCount = 0;
 
+    private float time = 0.0f;
+    private float finishedTime = 0.0f;
     bool isfail = false;
 
     public void Awake()
@@ -38,7 +41,6 @@ public class GameManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         cardCount = 12;
     }
-
     void Update()
     {
         time += Time.deltaTime;
@@ -51,10 +53,9 @@ public class GameManager : MonoBehaviour
             isfail = true;
         }
     }
-
     public void CardMatched()
     {
-        if(firstcard.idx == secondcard.idx)
+        if (firstcard.idx == secondcard.idx)
         {
             audioSource.PlayOneShot(clearclip);
             firstcard.DestroyCard();
@@ -63,6 +64,8 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
+                Time.timeScale = 0.0f;
+                finishedTime = time;
                 StartCoroutine(DelayLoadClearScene());
             }
         }
@@ -77,11 +80,14 @@ public class GameManager : MonoBehaviour
         secondcard = null;      // use at card.cs
     }
 
+    public float GetTime()
+    {
+        return finishedTime;
+    }
     void CloseFailCard()
     {
          audioSource.PlayOneShot(failclip);
     }
-   
     // coroutine of loading ClearScene
     IEnumerator DelayLoadClearScene()
     {
@@ -89,4 +95,5 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
+
 }

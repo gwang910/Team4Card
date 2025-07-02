@@ -10,6 +10,10 @@ public class CardFlip : MonoBehaviour
     public GameObject frontCard;
     public GameObject backCard;
 
+    public AudioSource audioSource;
+
+    public AudioClip flipSound;
+
     public Animator animFront;
     public Animator animBack;
 
@@ -31,6 +35,7 @@ public class CardFlip : MonoBehaviour
         btnBool = false;
         yTrack = 360.0f;
         count = 0;
+        audioSource = GetComponent<AudioSource>();
         animFront = frontCard.GetComponent<Animator>();
         animBack = backCard.GetComponent<Animator>();
         frontSprite = frontCard.GetComponent<SpriteRenderer>();
@@ -41,7 +46,7 @@ public class CardFlip : MonoBehaviour
     }
     public void Update()
     {
-        if ((backCard.transform.rotation.eulerAngles.y < 90 || backCard.transform.rotation.eulerAngles.y > 270) || backCard.transform.rotation.eulerAngles.y == 0)
+        if (backCard.transform.rotation.eulerAngles.y < 90 || backCard.transform.rotation.eulerAngles.y > 270)
         {
             frontSprite.enabled = false;
         }
@@ -68,6 +73,7 @@ public class CardFlip : MonoBehaviour
     {
         if (btnBool == false) //한 번만 작동하도록
         {
+            AudioManager.Instance.effectSource.PlayOneShot(flipSound);
             animFront.enabled = true;
             animBack.enabled = true;
             btnBool = true;
