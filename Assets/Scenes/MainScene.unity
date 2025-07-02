@@ -914,7 +914,8 @@ MonoBehaviour:
   endPanelFail: {fileID: 1355472978}
   timeTxt: {fileID: 476323821}
   endFailPrefab: {fileID: 6296137479939969990, guid: 7df5817be84bd42f9845fcaa282aaac5, type: 3}
-  clip: {fileID: 8300000, guid: bacb365ee60b7af48834110a0e7bd63f, type: 3}
+  clearclip: {fileID: 8300000, guid: 1c8fa355ac77a8245af611ca5d085d99, type: 3}
+  failclip: {fileID: 8300000, guid: 3795e7fb3c3108740afd46978e1c247a, type: 3}
   firstcard: {fileID: 0}
   secondcard: {fileID: 0}
   cardCount: 0
