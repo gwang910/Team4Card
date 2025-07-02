@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public GameObject endClearTxt;
     public GameObject endFailTxt;
     public GameObject endFailPrefab;
-    float time = 0.0f;
 
     AudioSource audioSource;
     public AudioClip clip;
@@ -24,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private bool isPlay = true;
     private float time = 0.0f;
+    private float finishedTime = 0.0f;
     bool isfail = false;
 
     public void Awake()
@@ -53,19 +53,20 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0.0f;
                 endFailTxt.SetActive(true);
             }
-        time += Time.deltaTime;
-        timeTxt.text = time.ToString("N2");
-        if (time > 30.0f && !isfail)
-        {
-            Time.timeScale = 0.0f;
-            Instantiate(endFailPrefab);
-            isfail = true;
+            time += Time.deltaTime;
+            timeTxt.text = time.ToString("N2");
+            if (time > 30.0f && !isfail)
+            {
+                Time.timeScale = 0.0f;
+                Instantiate(endFailPrefab);
+                isfail = true;
+            }
         }
     }
 
     public void CardMatched()
     {
-        if(firstcard.idx == secondcard.idx)
+        if (firstcard.idx == secondcard.idx)
         {
             audioSource.PlayOneShot(clip);
             firstcard.DestroyCard();
@@ -75,8 +76,8 @@ public class GameManager : MonoBehaviour
             if (cardCount == 0)
             {
                 isPlay = false;
-                endClearTxt.SetActive(true);
                 Time.timeScale = 0.0f;
+                finishedTime = time;
                 LoadClearScene();
             }
         }
@@ -92,7 +93,8 @@ public class GameManager : MonoBehaviour
 
     public float GetTime()
     {
-        return time;
+        return finishedTime;
+    }
     public void LoadClearScene()
     {
         Time.timeScale = 1.0f;

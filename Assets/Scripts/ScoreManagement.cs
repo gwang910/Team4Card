@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NowScore : MonoBehaviour
+public class ScoreManagement : MonoBehaviour
 {
     private float time;
 
@@ -19,7 +19,10 @@ public class NowScore : MonoBehaviour
     private void SetNowScore()
     {
         time = GameManager.Instance.GetTime();
-        nowScore.text = time.ToString();
+        if (nowScore != null)
+        {
+            nowScore.text = time.ToString("N2");
+        }
     }
 
     private void SetBestScore()
@@ -36,7 +39,11 @@ public class NowScore : MonoBehaviour
             }
             else
             {
-                bestScore.text = best.ToString("N2");
+                if(bestScore != null)
+                {
+                    bestScore.text = best.ToString("N2");
+                }
+                
             }
         }
         else
