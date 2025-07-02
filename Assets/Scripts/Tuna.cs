@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tuna : MonoBehaviour
 {
-    float speed = 0.007f;
+    float speed = 0.006f;
 
     void Start()
     {
