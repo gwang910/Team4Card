@@ -40,7 +40,7 @@ public class StageSelect : MonoBehaviour
     }
     public void LoadStage3x4()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Stage1_4x3");
     }
 
     public void LoadStage4x4()

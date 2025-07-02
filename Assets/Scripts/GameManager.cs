@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public GameObject endFailTxt;
     public GameObject endFailPrefab;
 
+    public static int stageRows;
+    public static int stageCols;
+
     AudioSource audioSource;
     public AudioClip clearclip;
     public AudioClip failclip;
@@ -125,8 +128,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
-
-    // Check all cards arrived
     public void NotifyCardArrived()
     {
         arrivedCardCount++;
