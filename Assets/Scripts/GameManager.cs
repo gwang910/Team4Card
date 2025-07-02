@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public GameObject endFailTxt;
     public GameObject endFailPrefab;
 
+    public static int stageRows;
+    public static int stageCols;
+
     AudioSource audioSource;
     public AudioClip clearclip;
     public AudioClip failclip;
