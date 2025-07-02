@@ -18,6 +18,7 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(PlaySequence());
+        Time.timeScale = 1.0f;
     }
 
     IEnumerator PlaySequence()
