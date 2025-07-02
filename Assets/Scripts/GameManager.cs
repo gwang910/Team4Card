@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                Time.timeScale = 0.0f;
                 finishedTime = time;
                 StartCoroutine(DelayLoadClearScene());
             }
