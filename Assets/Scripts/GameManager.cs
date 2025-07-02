@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public EndPanelFail endPanelFail;
     public static GameManager Instance;
+    public Animator timeanime;
 
     public Text timeTxt;
     public GameObject endClearTxt;
@@ -41,7 +42,6 @@ public class GameManager : MonoBehaviour
         stopTime = false;
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
-        cardCount = 12;
     }
     void Update()
     {
@@ -50,6 +50,12 @@ public class GameManager : MonoBehaviour
         {
             timeTxt.text = time.ToString("N2");
         }
+
+        if (time > 19.9f)
+        {
+            timeanime.SetTrigger("TimeUp");
+        }
+
         if (time > 30.0f && !isfail)
         {
             Time.timeScale = 0.0f;
@@ -84,7 +90,10 @@ public class GameManager : MonoBehaviour
         firstcard = null;
         secondcard = null;      // use at card.cs
     }
-
+    public void SetCardCount(int count)
+    {
+        cardCount = count;
+    }
     public float GetTime()
     {
         return finishedTime;

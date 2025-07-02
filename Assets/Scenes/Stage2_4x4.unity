@@ -235,7 +235,6 @@ GameObject:
   m_Component:
   - component: {fileID: 444498698}
   - component: {fileID: 444498697}
-  - component: {fileID: 444498699}
   - component: {fileID: 444498696}
   - component: {fileID: 444498695}
   m_Layer: 0
@@ -451,7 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSource: {fileID: 444498696}
   effectSource: {fileID: 444498695}
-  BackGroundSound: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
+  BackGroundSound: {fileID: 0}
   startSound: {fileID: 8300000, guid: bacb365ee60b7af48834110a0e7bd63f, type: 3}
 --- !u!4 &444498698
 Transform:
@@ -468,21 +467,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &444498699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444498694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab664fb50f6c22e41b2970e35d52cbb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgmSource: {fileID: 444498696}
-  TimeUpSound: {fileID: 8300000, guid: 35967e8a4dfb1664e9b066939272c0a4, type: 3}
-  animator: {fileID: 476323823}
 --- !u!1 &476323819
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +478,6 @@ GameObject:
   - component: {fileID: 476323820}
   - component: {fileID: 476323822}
   - component: {fileID: 476323821}
-  - component: {fileID: 476323823}
   m_Layer: 5
   m_Name: TimeTxt
   m_TagString: Untagged
@@ -563,27 +546,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476323819}
   m_CullTransparentMesh: 1
---- !u!95 &476323823
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476323819}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6706a91a6fe786e4a80d2db4495f6f3d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,7 +912,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPanelFail: {fileID: 1355472978}
-  timeanime: {fileID: 476323823}
   timeTxt: {fileID: 476323821}
   endClearTxt: {fileID: 0}
   endFailTxt: {fileID: 0}

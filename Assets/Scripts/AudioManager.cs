@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip BackGroundSound;
     public AudioClip startSound;
 
+
+
     void Start()
     {
         bgmSource = GetComponent<AudioSource>();
@@ -18,6 +20,7 @@ public class AudioManager : MonoBehaviour
         bgmSource.clip = this.BackGroundSound; // 배경음 재생
         bgmSource.Play();
     }
+
 
 
 
