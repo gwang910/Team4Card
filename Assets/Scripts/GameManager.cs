@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;         //Scene???????? ?????? ????
 
 public class GameManager : MonoBehaviour
 {
+    public EndPanelFail endPanelFail;
     public static GameManager Instance;
 
     public Text timeTxt;
@@ -44,7 +45,8 @@ public class GameManager : MonoBehaviour
         if (time > 30.0f && !isfail)
         {
             Time.timeScale = 0.0f;
-            Instantiate(endFailPrefab);
+            //Instantiate(endFailPrefab);
+            endPanelFail.ShowEndPanel();
             isfail = true;
         }
     }
