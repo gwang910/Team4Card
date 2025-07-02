@@ -63,19 +63,22 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                Time.timeScale = 0.0f;
-                LoadClearScene();
+                Invoke("LoadClearScene",0.7f);
             }
         }
         else
         {
-            audioSource.PlayOneShot(failclip);
             firstcard.CloseCard();
             secondcard.CloseCard();
+            Invoke("CloseFailCard", 0.5f);
         }
-
         firstcard = null;
         secondcard = null;      // ???? ??????
+    }
+
+    void CloseFailCard()
+    {
+        audioSource.PlayOneShot(failclip);
     }
 
     public void LoadClearScene()
