@@ -117,6 +117,17 @@ public class GameManager : MonoBehaviour
     IEnumerator DelayLoadClearScene()
     {
         yield return new WaitForSecondsRealtime(0.5f);
+
+        string currentScene = SceneManager.GetActiveScene().name;
+        if(currentScene == "Stage1_4x3")
+        {
+            PlayerPrefs.SetInt("Stage2_4x4_unlock", 1);     // 1 = true = unlock
+        }
+        else if(currentScene == "Stage2_4x4")
+        {
+            PlayerPrefs.SetInt("Stage3_4x5_unlock", 1);
+        }
+        PlayerPrefs.Save();
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
     }
