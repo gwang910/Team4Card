@@ -95,6 +95,9 @@ public class Card : MonoBehaviour
         }
 
         transform.position = targetPosition;
+
+        GameManager.Instance.NotifyCardArrived();
     }
+
 
 }

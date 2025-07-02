@@ -23,6 +23,7 @@ public class Borad : MonoBehaviour
 
             go.transform.position = new Vector2(x, y);
             go.GetComponent<Card>().Setting(arr[i]);
+            go.GetComponent<Card>().Deal(i);
 
         }
     }
