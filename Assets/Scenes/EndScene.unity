@@ -710,6 +710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontCard: {fileID: 1092083852}
   backCard: {fileID: 1443017041}
+  audioSource: {fileID: 0}
+  flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
   frontSprite: {fileID: 0}
@@ -878,6 +880,7 @@ GameObject:
   - component: {fileID: 434805868}
   - component: {fileID: 434805867}
   - component: {fileID: 434805866}
+  - component: {fileID: 434805870}
   m_Layer: 5
   m_Name: RetryBtn
   m_TagString: Untagged
@@ -1012,6 +1015,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434805864}
   m_CullTransparentMesh: 1
+--- !u!95 &434805870
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434805864}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8b9b4f8f02de8240b73e6faa20a1f91, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &449646160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,6 +1493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontCard: {fileID: 1653449601}
   backCard: {fileID: 160472324}
+  audioSource: {fileID: 0}
+  flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
   frontSprite: {fileID: 0}
@@ -1585,6 +1611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontCard: {fileID: 582365033}
   backCard: {fileID: 1513607792}
+  audioSource: {fileID: 0}
+  flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
   frontSprite: {fileID: 0}
@@ -1639,6 +1667,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontCard: {fileID: 25151141}
   backCard: {fileID: 1850126748}
+  audioSource: {fileID: 0}
+  flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
   frontSprite: {fileID: 0}
@@ -2011,6 +2041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontCard: {fileID: 1371422355}
   backCard: {fileID: 789134963}
+  audioSource: {fileID: 0}
+  flipSound: {fileID: 8300000, guid: 200973686654f2f47a36bd3d66715eef, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
   frontSprite: {fileID: 0}
@@ -3429,6 +3461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1837632390}
   - component: {fileID: 1837632389}
+  - component: {fileID: 1837632391}
   m_Layer: 0
   m_Name: End
   m_TagString: Untagged
@@ -3503,6 +3536,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1837632391
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837632388}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75b6c819a52023f43b046269dbf4c132, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1850126748
 GameObject:
   m_ObjectHideFlags: 0
