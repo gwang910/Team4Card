@@ -17,5 +17,4 @@ public class HiddenStageBoard : MonoBehaviour
     {
         Instantiate(card);
     }
-
 }
