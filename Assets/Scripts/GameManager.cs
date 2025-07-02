@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     bool stopTime;
     bool isfail = false;
 
+    bool isCardReady = false;   // for waiting card dealing animation
+    int arrivedCardCount = 0;
+
     public void Awake()
     {
         if (Instance == null)
@@ -45,10 +48,11 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        time += Time.deltaTime;
-        if (!stopTime)
+        
+        if (!stopTime && isCardReady)
         {
             timeTxt.text = time.ToString("N2");
+            time += Time.deltaTime;
         }
 
         if (time > 19.9f)
@@ -109,5 +113,17 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndScene");
+    }
+
+    // Check all cards arrived
+    public void NotifyCardArrived()
+    {
+        arrivedCardCount++;
+
+        // when all cards arrive, time start
+        if (arrivedCardCount >= cardCount)
+        {
+            isCardReady = true;     // 'true' is essential for time start
+        }
     }
 }

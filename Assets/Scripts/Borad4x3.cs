@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Borad : MonoBehaviour
+public class Borad4x3 : MonoBehaviour
 {
     public GameObject card;
 
@@ -11,6 +11,7 @@ public class Borad : MonoBehaviour
     void Start()
     {
         GameManager.Instance.SetCardCount(12);
+
         int[] arr = { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 };
         arr = arr.OrderBy(X => Random.Range(0f, 5f)).ToArray();
 
@@ -23,7 +24,7 @@ public class Borad : MonoBehaviour
 
             go.transform.position = new Vector2(x, y);
             go.GetComponent<Card>().Setting(arr[i]);
-            go.GetComponent<Card>().Deal(i);
+            go.GetComponent<Card>().Deal (i);
 
         }
     }
