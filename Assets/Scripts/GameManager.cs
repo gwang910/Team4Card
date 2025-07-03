@@ -153,17 +153,16 @@ public class GameManager : MonoBehaviour
 
     public int GetStageNumber()
     {
-        if(stageCards == 12)
+        switch (stageCards)
         {
-            return 1;
-        }
-        else if(stageCards == 16)
-        {
-            return 2;
-        }
-        else
-        {
-            return 3;
+            case 12: 
+                return 1;
+            case 16: 
+                return 2; 
+            case 20: 
+                return 3; 
+            default: 
+                return 1;
         }
     }
 }

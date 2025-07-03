@@ -17,7 +17,10 @@ public class HiddenStageBoard : MonoBehaviour
     }
     private void Update()
     {
-        CheckHiddenStageComplete();
+        if (!isStopped)
+        {
+            CheckHiddenStageComplete();
+        }
     }
     void MakeCard()
     {
@@ -29,7 +32,7 @@ public class HiddenStageBoard : MonoBehaviour
     }
     private void CheckHiddenStageComplete()
     {
-        if (!isStopped && HiddenStageGM.Instance != null && !HiddenStageGM.Instance.GetIsPlay())
+        if (HiddenStageGM.Instance != null && !HiddenStageGM.Instance.GetIsPlay())
         {
             CancelInvoke("MakeCard");
             InvokeRepeating("MakeCrown", 0.0f, 0.1f);
