@@ -39,7 +39,7 @@ public class HiddenStageGM : MonoBehaviour
 
     void Start()
     {
-        time = 10.0f;
+        time = 60.0f;
         isPlay = true;
         audioSource = GetComponent<AudioSource>();
     }
