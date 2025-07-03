@@ -42,10 +42,13 @@ public class AudioManager : MonoBehaviour
 
         if (animator == null)
         {
-            animator = GameObject.Find("TimeTxt").GetComponent<Animator>();
-            if (animator == null)
+            if(GameObject.Find("TimeTxt") == null)
             {
                 return;
+            }
+            else
+            {
+                animator = GameObject.Find("TimeTxt").GetComponent<Animator>();
             }
         }
 
