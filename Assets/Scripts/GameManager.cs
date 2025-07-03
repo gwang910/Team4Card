@@ -148,4 +148,9 @@ public class GameManager : MonoBehaviour
             isCardReady = true;     // 'true' is essential for time start
         }
     }
+
+    public int GetStageNumber()
+    {
+        return cardCount / 4;
+    }
 }
