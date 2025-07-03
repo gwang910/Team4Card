@@ -5,18 +5,27 @@ using UnityEngine.UI;
 
 public class ScoreManagement : MonoBehaviour
 {
-    const string BEST_SCORE_KEY = "BestScore";
+    const string BEST_SCORE_KEY1 = "BestScore1";
+    const string BEST_SCORE_KEY2 = "BestScore2";
+    const string BEST_SCORE_KEY3 = "BestScore3";
 
     private float time;
 
     public Text nowScore;
     public Text bestScore;
     public Text newBest;
+    private int stageNumber;
 
     private void Start()
     {
+        Init();
         SetNowScore();
         SetBestScore();
+    }
+
+    private void Init()
+    {
+        stageNumber = GameManager.Instance.GetStageNumber();
     }
     private void SetNowScore()
     {
@@ -30,9 +39,17 @@ public class ScoreManagement : MonoBehaviour
     {
         float currentBestScore;
         bool isNewRecord = false;
-        if (PlayerPrefs.HasKey(BEST_SCORE_KEY))
+        string key;
+        switch (stageNumber)
         {
-            currentBestScore = PlayerPrefs.GetFloat(BEST_SCORE_KEY);
+            case 1: key = BEST_SCORE_KEY1; break;
+            case 2: key = BEST_SCORE_KEY2; break;
+            case 3: key = BEST_SCORE_KEY3; break;
+            default: key = BEST_SCORE_KEY1; break;
+        }
+        if (PlayerPrefs.HasKey(key))
+        {
+            currentBestScore = PlayerPrefs.GetFloat(key);
         }
         else
         {
@@ -46,22 +63,23 @@ public class ScoreManagement : MonoBehaviour
         }
         if (isNewRecord)
         {
-            PlayerPrefs.SetFloat(BEST_SCORE_KEY, currentBestScore);
-            if (newBest != null)
-            {
-                newBest.gameObject.SetActive(true);
-            }
+            PlayerPrefs.SetFloat(key, currentBestScore);
         }
-        else
-        {
-            if (newBest != null)
-            {
-                newBest.gameObject.SetActive(false);
-            }
-        }
+        ShowNewBest(isNewRecord);
         if (bestScore != null)
         {
             bestScore.text = currentBestScore.ToString("N2");
+        }
+    }
+    private void ShowNewBest(bool isNew)
+    {
+        if (isNew && newBest != null)
+        {
+            newBest.gameObject.SetActive(true);
+        }
+        else if(!isNew && newBest != null)
+        {
+            newBest.gameObject.SetActive(false);
         }
     }
 }

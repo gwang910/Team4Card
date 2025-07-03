@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public Card firstcard;
     public Card secondcard;               // Connect to GameObject Card
     public int cardCount = 0;
+    int stageCards;
 
     private float time = 0.0f;
     private float finishedTime = 0.0f;
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
     }
     public void SetCardCount(int count)
     {
+        stageCards = count;
         cardCount = count;
     }
     public float GetTime()
@@ -151,6 +153,17 @@ public class GameManager : MonoBehaviour
 
     public int GetStageNumber()
     {
-        return cardCount / 4;
+        if(stageCards == 12)
+        {
+            return 1;
+        }
+        else if(stageCards == 16)
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
+        }
     }
 }

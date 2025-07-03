@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
 
         bgmSource.clip = this.BackGroundSound; 
         bgmSource.Play();
+        bgmSource.loop = true;
     }
 
     public void PlayDefaultBGM()
@@ -32,16 +33,23 @@ public class AudioManager : MonoBehaviour
             bgmSource.Stop();
             bgmSource.clip = BackGroundSound;
             bgmSource.Play();
+            bgmSource.loop = true;
         }
     }
+
+
 
     void Update()
     {
 
         if (animator == null)
         {
-            animator = GameObject.Find("TimeTxt").GetComponent<Animator>();
-            if (animator == null)
+            GameObject timeTxt = GameObject.Find("TimeTxt");
+            if (timeTxt != null)
+            {
+                animator = timeTxt.GetComponent<Animator>();
+            }
+            else
             {
                 return;
             }
@@ -57,6 +65,7 @@ public class AudioManager : MonoBehaviour
                 bgmSource.Stop();
                 bgmSource.clip = this.TimeUpSound; // 시간임박 음악 재생
                 bgmSource.Play();
+                bgmSource.loop = true;
             }
 
             wasTimeUp = isTimeUp;
@@ -71,11 +80,11 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(gameObject); // AudioManager 파괴 방지
         }
         else
         {
-            Destroy(gameObject); 
+            Destroy(gameObject); // 배경음악 중복재생 방지
         }
 
     }
