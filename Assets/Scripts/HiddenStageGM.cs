@@ -16,7 +16,7 @@ public class HiddenStageGM : MonoBehaviour
     public GameObject scorePanel;
 
     public HiddenCard HFirstcard;
-    public HiddenCard HSecondcard;
+    public HiddenCard HSecondcard;               // Connect to GameObject Card
 
     public Text timeTxt;
     public Text scoreTxt;
@@ -56,6 +56,13 @@ public class HiddenStageGM : MonoBehaviour
         }
     }
 
+    void CloseFailCard()
+    {
+        audioSource.PlayOneShot(failclip);
+    }
+    // coroutine of loading ClearScene
+
+
     //HiddenStageMechanisms
     public void HiddenCardMatched()
     {
@@ -84,10 +91,10 @@ public class HiddenStageGM : MonoBehaviour
         }
         else
         {
-            audioSource.PlayOneShot(failclip);
+            Invoke("CloseFailCard", 0.6f);      // closefailcard sound delay
         }
         HFirstcard = null;
-        HSecondcard = null;
+        HSecondcard = null;      // use at card.cs
     }
     private void SetHiddenScore()
     {

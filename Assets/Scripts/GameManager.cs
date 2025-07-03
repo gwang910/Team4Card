@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviour
             //Instantiate(endFailPrefab);
             endPanelFail.ShowEndPanel();
             isfail = true;
-            AudioManager.Instance.PlayDefaultBGM();
         }
     }
     public void CardMatched()
@@ -87,7 +86,6 @@ public class GameManager : MonoBehaviour
 
             if (cardCount == 0)
             {
-                AudioManager.Instance.PlayDefaultBGM();
                 stopTime = true;
                 finishedTime = time;
                 StartCoroutine(DelayLoadClearScene());

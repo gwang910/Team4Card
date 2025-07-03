@@ -990,7 +990,7 @@ MonoBehaviour:
   bgmSource: {fileID: 791057343}
   effectSource: {fileID: 791057342}
   BackGroundSound: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
-  startSound: {fileID: 8300000, guid: bacb365ee60b7af48834110a0e7bd63f, type: 3}
+  startSound: {fileID: 8300000, guid: 8ff2a2d7e79f81c40ac447512f879374, type: 3}
   TimeUpSound: {fileID: 0}
   animator: {fileID: 0}
 --- !u!4 &791057345
