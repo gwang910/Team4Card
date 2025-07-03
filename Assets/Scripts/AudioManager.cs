@@ -71,11 +71,11 @@ public class AudioManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(gameObject); // AudioManager 파괴 방지
         }
         else
         {
-            Destroy(gameObject); 
+            Destroy(gameObject); // 배경음악 중복재생 방지
         }
 
     }
