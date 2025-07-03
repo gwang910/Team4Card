@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
 
         bgmSource.clip = this.BackGroundSound; 
         bgmSource.Play();
+        bgmSource.loop = true;
     }
 
     public void PlayDefaultBGM()
@@ -32,6 +33,7 @@ public class AudioManager : MonoBehaviour
             bgmSource.Stop();
             bgmSource.clip = BackGroundSound;
             bgmSource.Play();
+            bgmSource.loop = true;
         }
     }
 
@@ -57,6 +59,7 @@ public class AudioManager : MonoBehaviour
                 bgmSource.Stop();
                 bgmSource.clip = this.TimeUpSound; // 시간임박 음악 재생
                 bgmSource.Play();
+                bgmSource.loop = true;
             }
 
             wasTimeUp = isTimeUp;
