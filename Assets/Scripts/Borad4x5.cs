@@ -20,7 +20,7 @@ public class Borad4x5 : MonoBehaviour
             GameObject go = Instantiate(card, this.transform);
 
             float x = (i % 4) * 1.4f - 2.12f;
-            float y = (i / 4) * 1.82f - 4.11f;
+            float y = -(i / 4) * 1.82f + 3.11f;
 
             go.transform.position = new Vector2(x, y);
             go.GetComponent<Card>().Setting(arr[i]);
