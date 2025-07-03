@@ -55,7 +55,7 @@ public class AudioManager : MonoBehaviour
             if (isTimeUp && !wasTimeUp)
             {
                 bgmSource.Stop();
-                bgmSource.clip = this.TimeUpSound; // 시간임박 음악 재생
+                bgmSource.clip = this.TimeUpSound; // ???????? ???? ????
                 bgmSource.Play();
             }
 
