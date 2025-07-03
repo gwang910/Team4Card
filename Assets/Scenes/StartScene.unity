@@ -743,7 +743,6 @@ GameObject:
   m_Component:
   - component: {fileID: 502250572}
   - component: {fileID: 502250571}
-  - component: {fileID: 502250575}
   - component: {fileID: 502250573}
   - component: {fileID: 502250574}
   m_Layer: 0
@@ -769,6 +768,8 @@ MonoBehaviour:
   effectSource: {fileID: 502250574}
   BackGroundSound: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
   startSound: {fileID: 8300000, guid: 8ff2a2d7e79f81c40ac447512f879374, type: 3}
+  TimeUpSound: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!4 &502250572
 Transform:
   m_ObjectHideFlags: 0
@@ -976,21 +977,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &502250575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502250570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab664fb50f6c22e41b2970e35d52cbb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgmSource: {fileID: 502250573}
-  TimeUpSound: {fileID: 8300000, guid: 35967e8a4dfb1664e9b066939272c0a4, type: 3}
-  animator: {fileID: 0}
 --- !u!1 &598167804
 GameObject:
   m_ObjectHideFlags: 0

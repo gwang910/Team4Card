@@ -15,12 +15,15 @@ public class HiddenCard : MonoBehaviour
     public AudioClip clip;
 
     public Animator anim;
+
     void Start()
     {
         Setting();
         audioSource = GetComponent<AudioSource>();
     }
 
+
+    // Update is called once per frame
     void Update()
     {
         if (HiddenStageGM.Instance.GetIsPlay() == true)
@@ -51,7 +54,7 @@ public class HiddenCard : MonoBehaviour
 
         else
         {
-            if (HiddenStageGM.Instance.HFirstcard != this)
+            if(HiddenStageGM.Instance.HFirstcard != this)
             {
                 HiddenStageGM.Instance.HSecondcard = this;
                 HiddenStageGM.Instance.HiddenCardMatched();
