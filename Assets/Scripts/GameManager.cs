@@ -27,13 +27,14 @@ public class GameManager : MonoBehaviour
     public Card firstcard;
     public Card secondcard;               // Connect to GameObject Card
     public int cardCount = 0;
+    int stageCards;
 
     private float time = 0.0f;
     private float finishedTime = 0.0f;
     bool stopTime;
     bool isfail = false;
 
-    bool isCardReady = false;   // for waiting card dealing animation
+    public bool isCardReady = false;   // for waiting card dealing animation
     int arrivedCardCount = 0;
 
     public void Awake()
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
     }
     public void SetCardCount(int count)
     {
+        stageCards = count;
         cardCount = count;
     }
     public float GetTime()
@@ -146,6 +148,22 @@ public class GameManager : MonoBehaviour
         if (arrivedCardCount >= cardCount)
         {
             isCardReady = true;     // 'true' is essential for time start
+        }
+    }
+
+    public int GetStageNumber()
+    {
+        if(stageCards == 12)
+        {
+            return 1;
+        }
+        else if(stageCards == 16)
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
         }
     }
 }

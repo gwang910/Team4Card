@@ -36,6 +36,12 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
+        // forbide card clicking before it arrived
+        if (!GameManager.Instance.isCardReady)
+        {
+            return;
+        }
+        
         anim.SetBool("isOpen", true);
         front.SetActive(true);
         cardBackground.SetActive(true);
