@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Crown : MonoBehaviour
 {
-    bool crownFall = false;
+    const float CROWN_Y_POSITION = 1.65f;
+    const float CROWN_SPEED = 0.001f;
 
+    bool crownFall = false;
     void Update()
     {
-        if(crownFall == true && transform.position.y > 1.65f)
+        if (crownFall)
         {
-            transform.position += Vector3.down * 0.001f;
+            CrownMovement();
         }
     }
     private void OnMouseDown()
@@ -21,5 +23,12 @@ public class Crown : MonoBehaviour
     public void LongLiveTheKing()
     {
         crownFall = true;
+    }
+    private void CrownMovement()
+    {
+        if (transform.position.y > CROWN_Y_POSITION)
+        {
+            transform.position += Vector3.down * CROWN_SPEED;
+        }
     }
 }

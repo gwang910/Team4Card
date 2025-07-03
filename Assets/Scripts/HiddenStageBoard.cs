@@ -15,18 +15,9 @@ public class HiddenStageBoard : MonoBehaviour
         isStopped = false;
         InvokeRepeating("MakeCard", 0.0f, 0.5f);
     }
-
     private void Update()
     {
-        if (isStopped == false)
-        {
-            if (HiddenStageGM.Instance.GetIsPlay() == false)
-            {
-                CancelInvoke("MakeCard");
-                InvokeRepeating("MakeCrown", 0.0f, 0.1f);
-                isStopped = true;
-            }
-        }
+        CheckHiddenStageComplete();
     }
     void MakeCard()
     {
@@ -35,5 +26,14 @@ public class HiddenStageBoard : MonoBehaviour
     void MakeCrown()
     {
         Instantiate(crown);
+    }
+    private void CheckHiddenStageComplete()
+    {
+        if (!isStopped && HiddenStageGM.Instance != null && !HiddenStageGM.Instance.GetIsPlay())
+        {
+            CancelInvoke("MakeCard");
+            InvokeRepeating("MakeCrown", 0.0f, 0.1f);
+            isStopped = true;
+        }
     }
 }

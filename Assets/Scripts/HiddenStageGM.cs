@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HiddenStageGM : MonoBehaviour
 {
+    private const float TIME_LIMIT = 60.0f;
+    private const string HIDDEN_BEST_SCORE_KEY = "HiddenScore";
+    private const int EASTER_EGG_PROBABILITY = 100;
     public static HiddenStageGM Instance;
 
     AudioSource audioSource;
@@ -17,7 +21,7 @@ public class HiddenStageGM : MonoBehaviour
     public GameObject scorePanel;
 
     public HiddenCard HFirstcard;
-    public HiddenCard HSecondcard;               // Connect to GameObject Card
+    public HiddenCard HSecondcard;
 
     public Text timeTxt;
     public Text scoreTxt;
@@ -35,21 +39,22 @@ public class HiddenStageGM : MonoBehaviour
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-
     void Start()
     {
-        time = 60.0f;
-        isPlay = true;
-        audioSource = GetComponent<AudioSource>();
+        Init();
+        GetComponents();
     }
     void Update()
     {
         time -= Time.deltaTime;
         if (time > 0)
         {
-            timeTxt.text = time.ToString("N0");
-            scoreTxt.text = score.ToString();
+            SetTexts();
         }
         else
         {
@@ -57,20 +62,33 @@ public class HiddenStageGM : MonoBehaviour
             SetHiddenScore();
         }
     }
-
-    void CloseFailCard()
+    void Init()
     {
-        audioSource.PlayOneShot(failclip);
+        time = TIME_LIMIT;
+        isPlay = true;
+    }
+    void GetComponents()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
     // coroutine of loading ClearScene
-
-
+    void SetTexts()
+    {
+        if (timeTxt != null)
+        {
+            timeTxt.text = time.ToString("N0");
+        }
+        if (scoreTxt != null)
+        {
+            scoreTxt.text = score.ToString();
+        }
+    }
     //HiddenStageMechanisms
     public void HiddenCardMatched()
     {
         if (HFirstcard.index == HSecondcard.index)
         {
-            if (Random.Range(0, 100) == 0)
+            if (Random.Range(0, EASTER_EGG_PROBABILITY) == 0)
             {
                 audioSource.PlayOneShot(hiddenTrack);
             }
@@ -100,21 +118,19 @@ public class HiddenStageGM : MonoBehaviour
         }
         else
         {
-            Invoke("CloseFailCard", 0.6f);      // closefailcard sound delay
+            audioSource.PlayOneShot(failclip);
         }
         HFirstcard = null;
         HSecondcard = null;      // use at card.cs
     }
     private void SetHiddenScore()
     {
-        string key = "HiddenScore";
-
-        if (PlayerPrefs.HasKey(key))
+        if (PlayerPrefs.HasKey(HIDDEN_BEST_SCORE_KEY))
         {
-            int best = PlayerPrefs.GetInt(key);
+            int best = PlayerPrefs.GetInt(HIDDEN_BEST_SCORE_KEY);
             if (best < score)
             {
-                PlayerPrefs.SetInt(key, score);
+                PlayerPrefs.SetInt(HIDDEN_BEST_SCORE_KEY, score);
                 bestScoreTxt.text = score.ToString();
             }
             else
@@ -127,7 +143,7 @@ public class HiddenStageGM : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt(key, score);
+            PlayerPrefs.SetInt(HIDDEN_BEST_SCORE_KEY, score);
             bestScoreTxt.text = score.ToString();
         }
         nowScoreTxt.text = score.ToString();
