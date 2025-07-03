@@ -14,6 +14,8 @@ public class StageSelect : MonoBehaviour
     private Animator lockAnimator4x4;
     private Animator lockAnimator4x5;
 
+    public float fadeOutAnimationDuration = 1.0f;
+
     private void Start()
     {
         int stage2_4x4Unlock = PlayerPrefs.GetInt("Stage2_4x4_unlock", 0);      // unlock or lock?
@@ -26,17 +28,21 @@ public class StageSelect : MonoBehaviour
         {
             stage2_4x4Button.interactable = true;
 
+            lockIcon4x4.SetActive(true);
+
             if (PlayerPrefs.GetString("NewlyUnlocked","") == "stage2_4x4")
             {
                 lockIcon4x4.SetActive(true);
                 if (lockAnimator4x4 != null)
                 {
+                    lockAnimator4x4.ResetTrigger("FadeOut");
                     lockAnimator4x4.SetTrigger("FadeOut");      //Only one animation do
+                    StartCoroutine(DisableAfterAnimation(lockIcon4x4, 0.5f));
                 }
             }
             else
             {
-                lockIcon4x4.SetActive(true);
+                lockIcon4x4.SetActive(false);
             }
         }
         else
@@ -49,18 +55,21 @@ public class StageSelect : MonoBehaviour
         {
             stage3_4x5Button.interactable = true;
 
+            lockIcon4x5.SetActive(true);
 
             if (PlayerPrefs.GetString("NewlyUnlocked", "") == "stage3_4x5")
             {
                 lockIcon4x5.SetActive(true);
                 if (lockAnimator4x5 != null)
                 {
+                    lockAnimator4x5.ResetTrigger("FadeOut");
                     lockAnimator4x5.SetTrigger("FadeOut");      //Only one animation do
+                    StartCoroutine(DisableAfterAnimation(lockIcon4x5, 0.5f));
                 }
             }
             else
             {
-                lockIcon4x5.SetActive(true);
+                lockIcon4x5.SetActive(false);
             }
         }
         else
@@ -71,6 +80,13 @@ public class StageSelect : MonoBehaviour
         PlayerPrefs.DeleteKey("NewlyUnlocked");         // if dont deletekey > stageclear > animation always
         PlayerPrefs.Save();
     }
+
+    private IEnumerator DisableAfterAnimation(GameObject lockIcon, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        lockIcon.SetActive(false);
+    }
+
     public void LoadStage4x3()
     {
         SceneManager.LoadScene("Stage1_4x3");
