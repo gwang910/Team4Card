@@ -2234,6 +2234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab664fb50f6c22e41b2970e35d52cbb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgmSource: {fileID: 898663439}
+  TimeUpSound: {fileID: 8300000, guid: 35967e8a4dfb1664e9b066939272c0a4, type: 3}
+  animator: {fileID: 0}
 --- !u!114 &898663441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2250,8 +2253,6 @@ MonoBehaviour:
   effectSource: {fileID: 898663438}
   BackGroundSound: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
   startSound: {fileID: 8300000, guid: bacb365ee60b7af48834110a0e7bd63f, type: 3}
-  TimeUpSound: {fileID: 8300000, guid: 35967e8a4dfb1664e9b066939272c0a4, type: 3}
-  animator: {fileID: 0}
 --- !u!4 &898663442
 Transform:
   m_ObjectHideFlags: 0
