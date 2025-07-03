@@ -46,6 +46,8 @@ public class Borad : MonoBehaviour
                 newCard.transform.position = new Vector2(xPos, yPos);
 
                 newCard.GetComponent<Card>().Setting(shuffledNumbers[cardIndex]);
+                
+                newCard.GetComponent<Card>().Deal(cardIndex); // for card dealing effects
             }
         }
     }
