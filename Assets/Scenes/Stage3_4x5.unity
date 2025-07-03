@@ -936,7 +936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPanelFail: {fileID: 1355472978}
-  timeanime: {fileID: 0}
+  timeanime: {fileID: 476323823}
   timeTxt: {fileID: 476323821}
   endClearTxt: {fileID: 0}
   endFailTxt: {fileID: 0}
