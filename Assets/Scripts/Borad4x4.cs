@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Borad : MonoBehaviour
+public class Borad4x4 : MonoBehaviour
 {
     public GameObject card;
 
@@ -12,10 +12,9 @@ public class Borad : MonoBehaviour
         int cols = 4;
         int totalCards = 16;
 
-        float cardScale = 0.8f;
-        float xSpacing = 1.2f;
-        float ySpacing = 1.8f;
-        float yOffset = -1.0f; 
+        float xSpacing = 1.4f;
+        float ySpacing = 2.2f;
+        float yOffset = -0.5f;
 
         if (GameManager.Instance != null)
         {
@@ -38,8 +37,6 @@ public class Borad : MonoBehaviour
                 int cardIndex = r * cols + c;
 
                 GameObject newCard = Instantiate(card, this.transform);
-
-                newCard.transform.localScale = new Vector3(cardScale, cardScale, 1f);
 
                 float xPos = (c - (cols - 1) / 2.0f) * xSpacing;
                 float yPos = (-r + (rows - 1) / 2.0f) * ySpacing + yOffset;
