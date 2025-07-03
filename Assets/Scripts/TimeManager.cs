@@ -11,6 +11,7 @@ public class TimeManager : MonoBehaviour
     public GameObject text2;
     public GameObject teamName;
     public GameObject StartButton;
+    public GameObject DeleteAllButton;
     public AudioSource effectSource;
     public AudioClip effectSound1;
     public AudioClip effectSound2;
@@ -47,5 +48,7 @@ public class TimeManager : MonoBehaviour
         textAnimators[4].SetTrigger("Enter");
         yield return new WaitForSeconds(delayBetween);
         effectSource.PlayOneShot(effectSound2);
+
+        DeleteAllButton.SetActive(true);
     }
 }
