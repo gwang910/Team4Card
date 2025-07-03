@@ -22,12 +22,21 @@ public class HiddenCard : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+
+    // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.left * 0.003f;
-        if (transform.position.x < -4.5f)
+        if (HiddenStageGM.Instance.GetIsPlay() == true)
         {
-            Destroy(gameObject);
+            transform.position += Vector3.left * 0.003f;
+            if (transform.position.x < -4.5f)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            DestroyCard();
         }
     }
 
@@ -45,7 +54,7 @@ public class HiddenCard : MonoBehaviour
 
         else
         {
-            if (HiddenStageGM.Instance.HFirstcard != this)
+            if(HiddenStageGM.Instance.HFirstcard != this)
             {
                 HiddenStageGM.Instance.HSecondcard = this;
                 HiddenStageGM.Instance.HiddenCardMatched();

@@ -12,18 +12,22 @@ public class HiddenStageGM : MonoBehaviour
     public AudioClip snare;
     public AudioClip hHat;
     public AudioClip failclip;
+    public AudioClip hiddenTrack;
 
     public GameObject scorePanel;
 
     public HiddenCard HFirstcard;
-    public HiddenCard HSecondcard;
+    public HiddenCard HSecondcard;               // Connect to GameObject Card
 
     public Text timeTxt;
     public Text scoreTxt;
     public Text bestScoreTxt;
     public Text nowScoreTxt;
 
-    float time = 60.0f;
+    bool isPlay;
+
+    float time;
+    
     int score = 0;
     public void Awake()
     {
@@ -35,7 +39,8 @@ public class HiddenStageGM : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 1.0f;
+        time = 60.0f;
+        isPlay = true;
         audioSource = GetComponent<AudioSource>();
     }
     void Update()
@@ -48,35 +53,46 @@ public class HiddenStageGM : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0.0f;
+            isPlay = false;
             SetHiddenScore();
-            scorePanel.gameObject.SetActive(true);
-            scoreTxt.gameObject.SetActive(false);
-            nowScoreTxt.text = score.ToString();
         }
     }
+
+    void CloseFailCard()
+    {
+        audioSource.PlayOneShot(failclip);
+    }
+    // coroutine of loading ClearScene
+
 
     //HiddenStageMechanisms
     public void HiddenCardMatched()
     {
         if (HFirstcard.index == HSecondcard.index)
         {
-            switch (score % 4)
+            if (Random.Range(0, 100) == 0)
             {
-                case 0:
-                    audioSource.PlayOneShot(kick);
-                    break;
-                case 1:
-                    audioSource.PlayOneShot(hHat);
-                    break;
-                case 2:
-                    audioSource.PlayOneShot(snare);
-                    break;
-                case 3:
-                    audioSource.PlayOneShot(hHat);
-                    break;
-                default:
-                    break;
+                audioSource.PlayOneShot(hiddenTrack);
+            }
+            else
+            {
+                switch (score % 4)
+                {
+                    case 0:
+                        audioSource.PlayOneShot(kick);
+                        break;
+                    case 1:
+                        audioSource.PlayOneShot(hHat);
+                        break;
+                    case 2:
+                        audioSource.PlayOneShot(snare);
+                        break;
+                    case 3:
+                        audioSource.PlayOneShot(hHat);
+                        break;
+                    default:
+                        break;
+                }
             }
             HFirstcard.DestroyCard();
             HSecondcard.DestroyCard();
@@ -84,10 +100,10 @@ public class HiddenStageGM : MonoBehaviour
         }
         else
         {
-            audioSource.PlayOneShot(failclip);
+            Invoke("CloseFailCard", 0.6f);      // closefailcard sound delay
         }
         HFirstcard = null;
-        HSecondcard = null;
+        HSecondcard = null;      // use at card.cs
     }
     private void SetHiddenScore()
     {
@@ -114,5 +130,12 @@ public class HiddenStageGM : MonoBehaviour
             PlayerPrefs.SetInt(key, score);
             bestScoreTxt.text = score.ToString();
         }
+        nowScoreTxt.text = score.ToString();
+        scoreTxt.gameObject.SetActive(false);
+        scorePanel.gameObject.SetActive(true);
+    }
+    public bool GetIsPlay()
+    {
+        return isPlay;
     }
 }
