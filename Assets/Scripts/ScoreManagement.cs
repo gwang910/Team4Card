@@ -37,7 +37,6 @@ public class ScoreManagement : MonoBehaviour
     }
     private void SetBestScore()
     {
-        Debug.Log(stageNumber);
         float currentBestScore;
         bool isNewRecord = false;
         string key;
