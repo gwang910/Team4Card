@@ -6,6 +6,8 @@ using System.Linq;
 public class HiddenStageBoard : MonoBehaviour
 {
     public GameObject card;
+    public GameObject crown;
+
     bool isStopped;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class HiddenStageBoard : MonoBehaviour
             if (HiddenStageGM.Instance.GetIsPlay() == false)
             {
                 CancelInvoke("MakeCard");
+                InvokeRepeating("MakeCrown", 0.0f, 0.1f);
                 isStopped = true;
             }
         }
@@ -28,5 +31,9 @@ public class HiddenStageBoard : MonoBehaviour
     void MakeCard()
     {
         Instantiate(card);
+    }
+    void MakeCrown()
+    {
+        Instantiate(crown);
     }
 }

@@ -814,6 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 5678648508968507981, guid: a7a174e372b5e4d4baf1857c01f4cbc9, type: 3}
+  crown: {fileID: 8405300583577822814, guid: d3a2a100b9155e449aceb4a7582b23f2, type: 3}
 --- !u!4 &1185061020
 Transform:
   m_ObjectHideFlags: 0
