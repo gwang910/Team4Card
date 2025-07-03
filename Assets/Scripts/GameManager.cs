@@ -129,12 +129,10 @@ public class GameManager : MonoBehaviour
         if(currentScene == "Stage1_4x3")
         {
             PlayerPrefs.SetInt("Stage2_4x4_unlock", 1);     // 1 = true = unlock
-            PlayerPrefs.SetString("NewlyUnlocked", "Stage2_4x4");
         }
         else if(currentScene == "Stage2_4x4")
         {
             PlayerPrefs.SetInt("Stage3_4x5_unlock", 1);
-            PlayerPrefs.SetString("NewlyUnlocked", "Stage3_4x5");
         }
         PlayerPrefs.Save();
         Time.timeScale = 1.0f;
