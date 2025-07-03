@@ -27,12 +27,10 @@ public class AudioManager : MonoBehaviour
 
     public void PlayDefaultBGM()
     {
-        if (bgmSource != null && BackGroundSound != null)
-        {
+        
             bgmSource.Stop();
             bgmSource.clip = BackGroundSound;
             bgmSource.Play();
-        }
     }
 
     void Update()
@@ -40,19 +38,10 @@ public class AudioManager : MonoBehaviour
 
         if (animator == null)
         {
-            animator = GameObject.Find("TimeTxt1").GetComponent<Animator>();
+            animator = GameObject.Find("TimeTxt").GetComponent<Animator>();
             if (animator == null)
             {
-                animator = GameObject.Find("TimeTxt2").GetComponent<Animator>();
-                if (animator == null)
-                {
-                    animator = GameObject.Find("TimeTxt3").GetComponent<Animator>();
-                    if (animator == null)
-                    {
-                        return;
-
-                    }
-                }
+                return;
             }
         }
 

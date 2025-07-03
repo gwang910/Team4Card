@@ -17,6 +17,5 @@ public class EndPanelFail : MonoBehaviour
         //멈췄던 시간을 다시 흐르게 하는 코드
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        AudioManager.Instance.PlayDefaultBGM();
     }
 }
