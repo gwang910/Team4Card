@@ -15,7 +15,6 @@ public class HiddenCard : MonoBehaviour
     public AudioClip clip;
 
     public Animator anim;
-
     void Start()
     {
         Setting();
@@ -24,10 +23,17 @@ public class HiddenCard : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.left * 0.003f;
-        if (transform.position.x < -4.5f)
+        if (HiddenStageGM.Instance.GetIsPlay() == true)
         {
-            Destroy(gameObject);
+            transform.position += Vector3.left * 0.003f;
+            if (transform.position.x < -4.5f)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            DestroyCard();
         }
     }
 
