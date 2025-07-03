@@ -6,13 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class StageSelect : MonoBehaviour
 {
-   public Button stage2_4x4Button;
-   public Button stage3_4x5Button;
-   public GameObject lockIcon4x4;
-   public GameObject lockIcon4x5;
+    public Button stage2_4x4Button;
+    public Button stage3_4x5Button;
+    public GameObject lockIcon4x4;
+    public GameObject lockIcon4x5;
+
+    private Animator lockAnimator4x4;
+    private Animator lockAnimator4x5;
 
     private void Start()
     {
+        lockAnimator4x4 = lockIcon4x4.GetComponent<Animator>();
+        lockAnimator4x5 = lockIcon4x5.GetComponent<Animator>();
+
         int stage2_4x4Unlock = PlayerPrefs.GetInt("Stage2_4x4_unlock", 0);
         int stage3_4x5Unlock = PlayerPrefs.GetInt("Stage3_4x5_unlock", 0);
 
