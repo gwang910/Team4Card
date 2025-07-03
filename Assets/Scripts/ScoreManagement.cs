@@ -64,21 +64,22 @@ public class ScoreManagement : MonoBehaviour
         if (isNewRecord)
         {
             PlayerPrefs.SetFloat(key, currentBestScore);
-            if (newBest != null)
-            {
-                newBest.gameObject.SetActive(true);
-            }
         }
-        else
-        {
-            if (newBest != null)
-            {
-                newBest.gameObject.SetActive(false);
-            }
-        }
+        ShowNewBest(isNewRecord);
         if (bestScore != null)
         {
             bestScore.text = currentBestScore.ToString("N2");
+        }
+    }
+    private void ShowNewBest(bool isNew)
+    {
+        if (isNew && newBest != null)
+        {
+            newBest.gameObject.SetActive(true);
+        }
+        else if(!isNew && newBest != null)
+        {
+            newBest.gameObject.SetActive(false);
         }
     }
 }
