@@ -16,7 +16,6 @@ public class HiddenCard : MonoBehaviour
 
     public Animator anim;
 
-    // Start is called before the first frame update
     void Start()
     {
         Setting();
@@ -27,10 +26,17 @@ public class HiddenCard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.left * 0.003f;
-        if (transform.position.x < -4.5f)
+        if (HiddenStageGM.Instance.GetIsPlay() == true)
         {
-            Destroy(gameObject);
+            transform.position += Vector3.left * 0.003f;
+            if (transform.position.x < -4.5f)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            DestroyCard();
         }
     }
 
