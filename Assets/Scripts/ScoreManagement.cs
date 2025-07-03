@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ScoreManagement : MonoBehaviour
 {
+    const string BEST_SCORE_KEY = "BestScore";
+
     private float time;
 
     public Text nowScore;
@@ -16,7 +18,6 @@ public class ScoreManagement : MonoBehaviour
         SetNowScore();
         SetBestScore();
     }
-
     private void SetNowScore()
     {
         time = GameManager.Instance.GetTime();
@@ -25,34 +26,42 @@ public class ScoreManagement : MonoBehaviour
             nowScore.text = time.ToString("N2");
         }
     }
-
     private void SetBestScore()
     {
-        string key = "BestScore";
-
-        if (PlayerPrefs.HasKey(key))
+        float currentBestScore;
+        bool isNewRecord = false;
+        if (PlayerPrefs.HasKey(BEST_SCORE_KEY))
         {
-            float best = PlayerPrefs.GetFloat(key);
-            if (best > time)
+            currentBestScore = PlayerPrefs.GetFloat(BEST_SCORE_KEY);
+        }
+        else
+        {
+            currentBestScore = time;
+            isNewRecord = true;
+        }
+        if (time < currentBestScore)
+        {
+            currentBestScore = time;
+            isNewRecord = true;
+        }
+        if (isNewRecord)
+        {
+            PlayerPrefs.SetFloat(BEST_SCORE_KEY, currentBestScore);
+            if (newBest != null)
             {
-                PlayerPrefs.SetFloat(key, time);
-                bestScore.text = time.ToString("N2");
                 newBest.gameObject.SetActive(true);
-            }
-            else
-            {
-                if(bestScore != null)
-                {
-                    bestScore.text = best.ToString("N2");
-                }
-                
             }
         }
         else
         {
-            PlayerPrefs.SetFloat(key, time);
-            bestScore.text = time.ToString("N2");
-            newBest.gameObject.SetActive(true);
+            if (newBest != null)
+            {
+                newBest.gameObject.SetActive(false);
+            }
+        }
+        if (bestScore != null)
+        {
+            bestScore.text = currentBestScore.ToString("N2");
         }
     }
 }

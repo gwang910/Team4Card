@@ -714,8 +714,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 1092083854}
+  backSprite: {fileID: 1443017044}
   nameTxt: {fileID: 1884092869}
   crown: {fileID: 1589542873}
 --- !u!4 &231442756
@@ -1497,8 +1497,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 1653449604}
+  backSprite: {fileID: 160472327}
   nameTxt: {fileID: 837831598}
   crown: {fileID: 1589542873}
 --- !u!1 &661333069
@@ -1615,8 +1615,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 582365035}
+  backSprite: {fileID: 1513607795}
   nameTxt: {fileID: 1686343505}
   crown: {fileID: 1589542873}
 --- !u!4 &664253373
@@ -1671,8 +1671,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 25151143}
+  backSprite: {fileID: 1850126751}
   nameTxt: {fileID: 1307853918}
   crown: {fileID: 1589542873}
 --- !u!4 &693652390
@@ -2253,6 +2253,8 @@ MonoBehaviour:
   effectSource: {fileID: 898663438}
   BackGroundSound: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
   startSound: {fileID: 8300000, guid: bacb365ee60b7af48834110a0e7bd63f, type: 3}
+  TimeUpSound: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!4 &898663442
 Transform:
   m_ObjectHideFlags: 0
@@ -2303,8 +2305,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 65643679813e5304da30ca544dd5af61, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 1371422357}
+  backSprite: {fileID: 789134966}
   nameTxt: {fileID: 661333070}
   crown: {fileID: 1589542873}
 --- !u!4 &903877162
@@ -3387,6 +3389,7 @@ GameObject:
   - component: {fileID: 1589542875}
   - component: {fileID: 1589542874}
   - component: {fileID: 1589542873}
+  - component: {fileID: 1589542879}
   - component: {fileID: 1589542880}
   m_Layer: 0
   m_Name: Crown
@@ -3474,6 +3477,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1589542879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589542872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &1589542880
 BoxCollider2D:
   m_ObjectHideFlags: 0

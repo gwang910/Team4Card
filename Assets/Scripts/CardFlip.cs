@@ -26,25 +26,56 @@ public class CardFlip : MonoBehaviour
 
     float yTrack;
 
-    int count;
+    int flipCount;
 
-    bool btnBool;
+    bool hasFlipped;
+    bool flipOver;
+    bool isFlipComplete;
 
     private void Start()
     {
-        btnBool = false;
+        Init();
+        GetComponents();
+    }
+    public void Update()
+    {
+        UpdateSprites();
+        FlipCounter();
+        if(flipOver && !isFlipComplete){
+            FlipComplete();
+        }
+    }
+    private void Init()
+    {
+        flipOver = false;
+        hasFlipped = false;
+        isFlipComplete = false;
         yTrack = 360.0f;
-        count = 0;
+        flipCount = 0;
+        frontSprite.enabled = false;
+        backSprite.enabled = true;
+        nameTxt.enabled = false;
+    }
+    private void GetComponents()
+    {
         audioSource = GetComponent<AudioSource>();
         animFront = frontCard.GetComponent<Animator>();
         animBack = backCard.GetComponent<Animator>();
         frontSprite = frontCard.GetComponent<SpriteRenderer>();
         backSprite = backCard.GetComponent<SpriteRenderer>();
-        frontSprite.enabled = false;
-        backSprite.enabled = true;
-        nameTxt.enabled = false;
     }
-    public void Update()
+    public void FlipCard()
+    {
+        if (!hasFlipped) //한 번만 작동하도록
+        {
+            AudioManager.Instance.effectSource.PlayOneShot(flipSound);
+            animFront.enabled = true;
+            animBack.enabled = true;
+            hasFlipped = true;
+            crown.LongLiveTheKing();
+        }
+    }
+    private void UpdateSprites()
     {
         if (backCard.transform.rotation.eulerAngles.y < 90 || backCard.transform.rotation.eulerAngles.y > 270)
         {
@@ -54,30 +85,28 @@ public class CardFlip : MonoBehaviour
         {
             frontSprite.enabled = true;
         }
+    }
+    private void FlipCounter()
+    {
         if (backCard.transform.rotation.eulerAngles.y > yTrack)
         {
-            count++;
+            flipCount++;
+            if (flipCount == 3)
+            {
+                flipOver = true;
+            }
         }
         yTrack = backCard.transform.rotation.eulerAngles.y;
-        if (count == 3 && backCard.transform.rotation.eulerAngles.y <= 180)
+    }
+    private void FlipComplete()
+    {
+        if (backCard.transform.rotation.eulerAngles.y <= 180)
         {
             animFront.enabled = false;
             animBack.enabled = false;
             backCard.transform.rotation = Quaternion.Euler(0, 180.0f, 0); //깔끔하게 180으로 두기 위함
             nameTxt.enabled = true;
-            count++; //if계산 더 안하도록 하기 위함
-        }
-    }
-
-    public void FlipCard()
-    {
-        if (btnBool == false) //한 번만 작동하도록
-        {
-            AudioManager.Instance.effectSource.PlayOneShot(flipSound);
-            animFront.enabled = true;
-            animBack.enabled = true;
-            btnBool = true;
-            crown.LongLiveTheKing();
+            isFlipComplete = true;
         }
     }
 }

@@ -69,6 +69,7 @@ public class GameManager : MonoBehaviour
 
         if (time > 30.0f && !isfail)
         {
+            AudioManager.Instance.PlayDefaultBGM();
             Time.timeScale = 0.0f;
             //Instantiate(endFailPrefab);
             endPanelFail.ShowEndPanel();
@@ -87,6 +88,12 @@ public class GameManager : MonoBehaviour
             if (cardCount == 0)
             {
                 stopTime = true;
+
+                if (time > 19.5f)
+                {
+                    AudioManager.Instance.PlayDefaultBGM();
+                }
+
                 finishedTime = time;
                 StartCoroutine(DelayLoadClearScene());
             }
