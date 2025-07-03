@@ -12,6 +12,7 @@ public class HiddenStageGM : MonoBehaviour
     public AudioClip snare;
     public AudioClip hHat;
     public AudioClip failclip;
+    public AudioClip hiddenTrack;
 
     public GameObject scorePanel;
 
@@ -62,22 +63,29 @@ public class HiddenStageGM : MonoBehaviour
     {
         if (HFirstcard.index == HSecondcard.index)
         {
-            switch (score % 4)
+            if (Random.Range(0, 100) == 0)
             {
-                case 0:
-                    audioSource.PlayOneShot(kick);
-                    break;
-                case 1:
-                    audioSource.PlayOneShot(hHat);
-                    break;
-                case 2:
-                    audioSource.PlayOneShot(snare);
-                    break;
-                case 3:
-                    audioSource.PlayOneShot(hHat);
-                    break;
-                default:
-                    break;
+                audioSource.PlayOneShot(hiddenTrack);
+            }
+            else
+            {
+                switch (score % 4)
+                {
+                    case 0:
+                        audioSource.PlayOneShot(kick);
+                        break;
+                    case 1:
+                        audioSource.PlayOneShot(hHat);
+                        break;
+                    case 2:
+                        audioSource.PlayOneShot(snare);
+                        break;
+                    case 3:
+                        audioSource.PlayOneShot(hHat);
+                        break;
+                    default:
+                        break;
+                }
             }
             HFirstcard.DestroyCard();
             HSecondcard.DestroyCard();
