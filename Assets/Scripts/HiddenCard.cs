@@ -28,7 +28,7 @@ public class HiddenCard : MonoBehaviour
         SetImage();
         GetComponents();
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (HiddenStageGM.Instance.GetIsPlay() == true)
@@ -40,16 +40,19 @@ public class HiddenCard : MonoBehaviour
             DestroyCard();
         }
     }
+
     private void OnMouseDown()
     {
         OpenCard();
     }
+
     public void OpenCard()
     {
         if (HiddenStageGM.Instance.HFirstcard == this)
         {
             return;
         }
+
         if (HiddenStageGM.Instance.HFirstcard == null)
         {
             audioSource.PlayOneShot(clip);
@@ -61,34 +64,42 @@ public class HiddenCard : MonoBehaviour
             HiddenStageGM.Instance.HiddenCardMatched();
         }
     }
+
     private void MoveCard()
     {
         transform.position += Vector3.left * CARD_SPEED;
+
         if (transform.position.x < CARD_MAX_X_POSITION)
         {
             Destroy(gameObject);
         }
     }
+
     void SetPosition()
     {
         float x = X_START_POSITION;
         float y = Random.Range(Y_MIN_POSITION, Y_MAX_POSITION);
+
         transform.position = new Vector2(x, y);
     }
+
     void SetImage()
     {
         index = Random.Range(0, 6);
         frontImage.sprite = Resources.Load<Sprite>($"Photo{index}");
     }
+
     void GetComponents()
     {
         audioSource = GetComponent<AudioSource>();
     }
+
     public void DestroyCard()
     {
         anim.SetBool("isMatched", true);
         Invoke("DestroyCardInvoke", 0.3f);
     }
+
     void DestroyCardInvoke()
     {
         Destroy(gameObject);

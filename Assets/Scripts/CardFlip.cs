@@ -37,25 +37,31 @@ public class CardFlip : MonoBehaviour
         Init();
         GetComponents();
     }
+
     public void Update()
     {
         UpdateSprites();
         FlipCounter();
+
         if(flipOver && !isFlipComplete){
             FlipComplete();
         }
     }
+
     private void Init()
     {
+        yTrack = 360.0f;
+        flipCount = 0;
+
         flipOver = false;
         hasFlipped = false;
         isFlipComplete = false;
-        yTrack = 360.0f;
-        flipCount = 0;
+
         frontSprite.enabled = false;
         backSprite.enabled = true;
         nameTxt.enabled = false;
     }
+
     private void GetComponents()
     {
         audioSource = GetComponent<AudioSource>();
@@ -64,6 +70,7 @@ public class CardFlip : MonoBehaviour
         frontSprite = frontCard.GetComponent<SpriteRenderer>();
         backSprite = backCard.GetComponent<SpriteRenderer>();
     }
+
     public void FlipCard()
     {
         if (!hasFlipped) //한 번만 작동하도록
@@ -75,6 +82,7 @@ public class CardFlip : MonoBehaviour
             crown.LongLiveTheKing();
         }
     }
+
     private void UpdateSprites()
     {
         if (backCard.transform.rotation.eulerAngles.y < 90 || backCard.transform.rotation.eulerAngles.y > 270)
@@ -86,11 +94,13 @@ public class CardFlip : MonoBehaviour
             frontSprite.enabled = true;
         }
     }
+
     private void FlipCounter()
     {
         if (backCard.transform.rotation.eulerAngles.y > yTrack)
         {
             flipCount++;
+
             if (flipCount == 3)
             {
                 flipOver = true;
@@ -98,6 +108,7 @@ public class CardFlip : MonoBehaviour
         }
         yTrack = backCard.transform.rotation.eulerAngles.y;
     }
+
     private void FlipComplete()
     {
         if (backCard.transform.rotation.eulerAngles.y <= 180)

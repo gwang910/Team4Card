@@ -9,6 +9,7 @@ public class Crown : MonoBehaviour
     const float CROWN_SPEED = 0.005f;
 
     bool crownFall = false;
+
     void Update()
     {
         if (crownFall)
@@ -16,14 +17,17 @@ public class Crown : MonoBehaviour
             CrownMovement();
         }
     }
+
     private void OnMouseDown()
     {
         SceneManager.LoadScene("HiddenStage");
     }
+
     public void LongLiveTheKing()
     {
         crownFall = true;
     }
+
     private void CrownMovement()
     {
         if (transform.position.y > CROWN_Y_POSITION)
