@@ -37,18 +37,21 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
+
     void Update()
     {
 
         if (animator == null)
         {
-            if(GameObject.Find("TimeTxt") == null)
+            GameObject timeTxt = GameObject.Find("TimeTxt");
+            if (timeTxt != null)
             {
-                return;
+                animator = timeTxt.GetComponent<Animator>();
             }
             else
             {
-                animator = GameObject.Find("TimeTxt").GetComponent<Animator>();
+                return;
             }
         }
 
