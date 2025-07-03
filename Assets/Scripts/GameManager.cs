@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     bool stopTime;
     bool isfail = false;
 
-    bool isCardReady = false;   // for waiting card dealing animation
+    public bool isCardReady = false;   // for waiting card dealing animation
     int arrivedCardCount = 0;
 
     public void Awake()
