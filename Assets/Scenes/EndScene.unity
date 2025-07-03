@@ -714,8 +714,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 1092083854}
+  backSprite: {fileID: 1443017044}
   nameTxt: {fileID: 1884092869}
   crown: {fileID: 1589542873}
 --- !u!4 &231442756
@@ -1497,8 +1497,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 1653449604}
+  backSprite: {fileID: 160472327}
   nameTxt: {fileID: 837831598}
   crown: {fileID: 1589542873}
 --- !u!1 &661333069
@@ -1615,8 +1615,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 582365035}
+  backSprite: {fileID: 1513607795}
   nameTxt: {fileID: 1686343505}
   crown: {fileID: 1589542873}
 --- !u!4 &664253373
@@ -1671,8 +1671,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 56703418e3aed4c47a5f6622816b8e41, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 25151143}
+  backSprite: {fileID: 1850126751}
   nameTxt: {fileID: 1307853918}
   crown: {fileID: 1589542873}
 --- !u!4 &693652390
@@ -2253,6 +2253,8 @@ MonoBehaviour:
   effectSource: {fileID: 898663438}
   BackGroundSound: {fileID: 8300000, guid: 1f2ad53bacc245642854dbdc8ea71a9b, type: 3}
   startSound: {fileID: 8300000, guid: bacb365ee60b7af48834110a0e7bd63f, type: 3}
+  TimeUpSound: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!4 &898663442
 Transform:
   m_ObjectHideFlags: 0
@@ -2303,8 +2305,8 @@ MonoBehaviour:
   flipSound: {fileID: 8300000, guid: 65643679813e5304da30ca544dd5af61, type: 3}
   animFront: {fileID: 0}
   animBack: {fileID: 0}
-  frontSprite: {fileID: 0}
-  backSprite: {fileID: 0}
+  frontSprite: {fileID: 1371422357}
+  backSprite: {fileID: 789134966}
   nameTxt: {fileID: 661333070}
   crown: {fileID: 1589542873}
 --- !u!4 &903877162
