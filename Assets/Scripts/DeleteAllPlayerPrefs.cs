@@ -10,11 +10,13 @@ public class DeleteAllPlayerPrefs : MonoBehaviour
     {
         CautionPanel.SetActive(true);
     }
+
     public void DeleteAll()
     {
         PlayerPrefs.DeleteAll();
         CautionPanel.SetActive(false);
     }
+
     public void DoNotDelete()
     {
         CautionPanel.SetActive(false);
