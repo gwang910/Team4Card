@@ -153,10 +153,10 @@ public class GameManager : MonoBehaviour
 
     public int GetStageNumber()
     {
-        switch (stageCards)
+        switch (stageCards) //스테이지 시작 시점 카드 갯수에 따라
         {
             case 12: 
-                return 1;
+                return 1; //스테이지 번호를 반환한다.
             case 16: 
                 return 2; 
             case 20: 
